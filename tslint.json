@@ -1,0 +1,29 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "curly": true,
+    "encoding": true,
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "no-trailing-whitespace": true,
+    "no-any": true,
+    "number-literal-format": true,
+    "only-arrow-functions": false,
+    "prefer-template": true,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "semicolon": true,
+    "trailing-comma": false
+  },
+  "rulesDirectory": []
+}
