@@ -1,0 +1,108 @@
+Registers
+---------------------------------------------
+
+	RA, RB, RC, RD, RE, RF, RG, RH
+
+	General purpose registers.
+
+  AR
+
+  Stores the result of the last arithmetic operation.
+
+  NR
+
+  Stores the result of the last NCALL.
+
+  NL
+
+  Flag bit indicating the state of the last read.
+
+
+Instructions
+---------------------------------------------
+
+   __________ 32 BITS _____________
+  |                                |
+
+  00000000 000000000000 000000000000
+   OPCODE    Operand1     Operand2
+
+    OPCODE specifies the operation to perform.
+
+    Operands may be a register, an immediate, or a memory reference.
+
+    ADD RA, RB    ; RA = RA + RB
+    ADD RA, 4d    ; RA = RA + 4 (base 10)
+    ADD RA, Ah    ; RA = RA + A (base 16)
+    ADD RA, 0xA   ; RA = RA + A (base 16)
+    ADD RA, [0x8] ; RA = RA + MEM[0x8]
+
+    Additionally, memory references can be computed from register values.
+
+    MOV RA, 32d
+    ADD RA, [RA]  ; RA = RA + MEM[32d]
+
+    OPECODE Reference
+
+    Arithmetic 
+
+    ADD A B
+      Adds B to A and stores it in A
+
+    INC A
+      Adds 1 to A and stores it in A
+
+    SUB A B
+      Subtracts B from A and stores it in A
+
+    DEC A
+      Subtracts 1 from A and stores it in A
+
+    MUL A B 
+      Multiplies A by B and stores it in A
+
+    DIV A B
+      Divides A by B and stores it in A
+      TODO: Float?
+
+    Reads and Writes
+    ---------------------------------------------
+
+    MOV A B
+      Move data from A to B.
+
+    Data Definitions
+    ---------------------------------------------
+
+    FI FOO 58d
+      Creates a "fixed" integer value in memory that cannot be changed.  Its value can be referenced by its alias.
+
+      Also called: constant, equate.
+
+    CS BAR 'A string of characters.'
+    CS BAR "Another string of characters."
+    CS BAR """Yet another string of characters."""
+      Creates a "fixed" sequence of bytes that cannot be changed.  Its value can be referenced by its alias.
+
+    System Access
+    ---------------------------------------------
+
+    SYSCALL <Operand>
+      Performs a system call.
+
+    NCALL <OPCODE> <Native Alias>
+      Performs a "native call" which will trigger the opcode on the native alias.
+      Example NCALL LDB @COM1
+        Reads a single byte from COM1.  Result is stored in NR register.  Note that system devices that support Direct Memory Access, NR is always 0xFFFF.
+
+    SIO ROM Aliases
+    ---------------------------------------------
+
+    @COM1
+      Native alias for COM1 in the SIO ROM.
+
+    @COM2
+      Native alias for COM2 in the SIO ROM.
+
+    @COM3
+      Native alias for COM3 in the SIO ROM.

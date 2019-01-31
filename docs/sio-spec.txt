@@ -1,0 +1,17 @@
+0x0000    PREAMBLE Sequence
+0x0020    Firmware Version
+
+0x0300    COM 1 Block
+0x0320    COM 2 Block
+0x0340    COM 3 Block
+
+0x0FFF
+----------------------------------------
+
+COM Block Structure
+
+   ____________ 32 BITS ___________
+  |                                |
+
+  00000000 00000000 0000000000000000
+   FIELD1   FIELD2    DATA PACKET
