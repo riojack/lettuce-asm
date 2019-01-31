@@ -1,9 +1,9 @@
 Registers
 ---------------------------------------------
 
-	RA, RB, RC, RD, RE, RF, RG, RH
+  RA, RB, RC, RD, RE, RF, RG, RH
 
-	General purpose registers.
+  General purpose registers.
 
   AR
 
