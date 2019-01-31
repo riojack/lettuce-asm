@@ -1,10 +1,13 @@
 {
   "name": "lettuce-asm",
   "version": "0.0.1",
-  "description": "Lettuce ASM is a simplified assembly language designed to teach and amuze.",
+  "description": "Lettuce ASM is a simplified assembly language designed to teach and amuse.",
   "main": "index.js",
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.spec.ts"
+  },
   "dependencies": {
     "mocha": "^5.2.0",
     "ts-node": "^8.0.2",
