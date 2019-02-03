@@ -15,4 +15,14 @@ describe('parser/reader', () => {
     chai.expect(node.getOperands())
       .to.eql([Registers.RA, 0x1]);
   });
+
+  it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', () => {
+    let node: IParseNode = Reader.parseString('SUB RA, 0x1');
+
+    chai.expect(node.getOpcode())
+      .to.equal(Opcodes.SUB);
+
+    chai.expect(node.getOperands())
+      .to.eql([Registers.RA, 0x1]);
+  });
 });
