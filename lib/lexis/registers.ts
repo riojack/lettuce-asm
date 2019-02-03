@@ -11,3 +11,5 @@ class Registers {
   // Arithmetic
   public static readonly AR: string = "AR";
 }
+
+export default Registers;

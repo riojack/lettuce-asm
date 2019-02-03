@@ -11,5 +11,6 @@ class Opcodes {
   public static readonly DIV: string = "DIV";
   // Reads and Writes
   public static readonly MOV: string = "MOV";
-
 }
+
+export default Opcodes;
