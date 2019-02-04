@@ -25,4 +25,14 @@ describe('parser/reader', () => {
     chai.expect(node.getOperands())
       .to.eql([Registers.RA, 0x1]);
   });
+
+  describe('multiline program', () => {
+    it('should parse a multiline program into instructions when separator is CRLF', () => {
+      const crlf = '\r\n';
+      const program: IParseNode[] = Reader.parseString(`ADD RA, 0x1${crlf}SUB RA, 0x1`);
+
+      chai.expect(program)
+        .to.have.length(2);
+    });
+  });
 });
