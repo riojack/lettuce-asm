@@ -3,10 +3,16 @@ import InstructionNode from "./nodes/instruction_node";
 
 const CRLF: string = '\r\n';
 
-function getTokenMatchingUntilBySize(value: string, until: string, index: number) {
-  if (index+1 >= until.length) {
-    return value.substr(index + 1 - until.length, until.length) === until;
+function getTokenMatchingUntilBySize(value: string, until: string, index: number): boolean {
+  const indexPlusOne: number = index + 1;
+  const untilSize = until.length;
+
+  if (indexPlusOne >= untilSize) {
+    const token: string = value.substr(indexPlusOne - untilSize, untilSize);
+
+    return token === until;
   }
+
   return false;
 }
 
@@ -33,8 +39,8 @@ class Reader {
     const nodes: IParseNode[] = [];
     const programLastPosition: number = program.length - 1;
 
+    let reachedEnd: boolean = false;
     let programLine = readUntil(program, CRLF);
-    let reachedEnd = false;
 
     while (!reachedEnd) {
       const opcode = readUntil(programLine.token, ' ');
@@ -54,7 +60,7 @@ class Reader {
         continue;
       }
 
-      programLine = readUntil(program, CRLF, programLine.stoppedAt+2);
+      programLine = readUntil(program, CRLF, programLine.stoppedAt + 2);
     }
 
     return nodes;

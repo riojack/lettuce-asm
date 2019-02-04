@@ -26,8 +26,8 @@ describe('parser/reader', () => {
       .to.eql([Registers.RA, 0x1]);
   });
 
-  describe('multiline program', () => {
-    it('should parse a multiline program into instructions when separator is CRLF', () => {
+  describe('CRLF multiline program', () => {
+    it('should parse into into countOf(CRLF)+1 instructions', () => {
       const crlf = '\r\n';
       const program: IParseNode[] = Reader.parseString(`ADD RA, 0x1${crlf}SUB RA, 0x1`);
 
