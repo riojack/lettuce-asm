@@ -27,12 +27,32 @@ describe('parser/reader', () => {
   });
 
   describe('CRLF multiline program', () => {
+    const crlf = '\r\n';
+    const twoLineProgram = `ADD RA, 0x1${crlf}SUB RA, 0x1`;
+
     it('should parse into into countOf(CRLF)+1 instructions', () => {
-      const crlf = '\r\n';
-      const program: IParseNode[] = Reader.parseString(`ADD RA, 0x1${crlf}SUB RA, 0x1`);
+      const program: IParseNode[] = Reader.parseString(twoLineProgram);
 
       chai.expect(program)
         .to.have.length(2);
+    });
+
+    it('should parse into correct nodes', () => {
+      const program: IParseNode[] = Reader.parseString(twoLineProgram);
+      const lineOne: IParseNode = program[0];
+      const lineTwo: IParseNode = program[1];
+
+      chai.expect(lineOne.getOpcode())
+        .to.equal(Opcodes.ADD);
+
+      chai.expect(lineOne.getOperands())
+        .to.eql([Registers.RA, 0x1]);
+
+      chai.expect(lineTwo.getOpcode())
+        .to.equal(Opcodes.SUB);
+
+      chai.expect(lineTwo.getOperands())
+        .to.eql([Registers.RA, 0x1]);
     });
   });
 });
