@@ -7,7 +7,7 @@ import * as chai from 'chai';
 
 describe('parser/reader', () => {
   it('should parse ADD RA, 0x1 into a ADD node with a register operand and an immediate operand', () => {
-    let node: IParseNode = Reader.parseString('ADD RA, 0x1');
+    const node: IParseNode = Reader.parseString('ADD RA, 0x1')[0];
 
     chai.expect(node.getOpcode())
       .to.equal(Opcodes.ADD);
@@ -17,7 +17,7 @@ describe('parser/reader', () => {
   });
 
   it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', () => {
-    let node: IParseNode = Reader.parseString('SUB RA, 0x1');
+    const node: IParseNode = Reader.parseString('SUB RA, 0x1')[0];
 
     chai.expect(node.getOpcode())
       .to.equal(Opcodes.SUB);

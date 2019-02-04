@@ -19,16 +19,20 @@ function readUntil(value: string, until: string, start: number = 0): { token: st
 }
 
 class Reader {
-  public static parseString(program: string): IParseNode {
+  public static parseString(program: string): IParseNode[] {
     const opcode = readUntil(program, ' ');
     const operandOne = readUntil(program, ',', opcode.stoppedAt + 1);
     const operandTwo = readUntil(program, '', operandOne.stoppedAt + 1);
 
-    return new InstructionNode(
-      opcode.token,
-      "",
-      [operandOne.token, parseInt(operandTwo.token)]);
-  };
+    const programList: IParseNode[] = [
+      new InstructionNode(
+        opcode.token,
+        "",
+        [operandOne.token, parseInt(operandTwo.token)])
+    ];
+
+    return programList;
+  }
 }
 
-export default Reader;
+  export default Reader;
