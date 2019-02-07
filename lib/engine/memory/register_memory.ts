@@ -1,9 +1,11 @@
 class RegisterMemory {
+  private memory: Uint32Array = new Uint32Array(11);
+
   write(address: number, bytes: number): void {
-    throw new Error("Method not implemented.");
+    this.memory[address] = bytes;
   }
   read(address: number): number {
-    throw new Error("Method not implemented.");
+    return this.memory[address];
   }
 }
 
