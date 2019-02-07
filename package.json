@@ -6,7 +6,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.spec.ts"
+    "test": "mocha -r ts-node/register test/**/*.spec.ts test/engine/memory/*.spec.ts"
   },
   "dependencies": {
     "@types/chai": "^4.1.7",
