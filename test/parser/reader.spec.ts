@@ -30,7 +30,7 @@ describe('parser/reader', () => {
     const crlf = '\r\n';
     const twoLineProgram = `ADD RA, 0x1${crlf}SUB RA, 0x1`;
 
-    it('should parse into into countOf(CRLF)+1 instructions', () => {
+    it('should parse into countOf(CRLF)+1 instructions', () => {
       const program: IParseNode[] = Reader.parseString(twoLineProgram);
 
       chai.expect(program)
