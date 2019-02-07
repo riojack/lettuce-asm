@@ -1,7 +1,7 @@
 import IParseNode from "./nodes/parse_node";
 import InstructionNode from "./nodes/instruction_node";
 
-const CRLF: string = '\r\n';
+const LF: string = '\n';
 
 function getTokenMatchingUntilBySize(value: string, until: string, index: number): boolean {
   const indexPlusOne: number = index + 1;
@@ -40,7 +40,7 @@ class Reader {
     const programLastPosition: number = program.length - 1;
 
     let reachedEnd: boolean = false;
-    let programLine = readUntil(program, CRLF);
+    let programLine = readUntil(program, LF);
 
     while (!reachedEnd) {
       const opcode = readUntil(programLine.token, ' ');
@@ -60,7 +60,7 @@ class Reader {
         continue;
       }
 
-      programLine = readUntil(program, CRLF, programLine.stoppedAt + 2);
+      programLine = readUntil(program, LF, programLine.stoppedAt + 2);
     }
 
     return nodes;

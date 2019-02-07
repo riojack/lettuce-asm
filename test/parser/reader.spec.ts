@@ -55,4 +55,34 @@ describe('parser/reader', () => {
         .to.eql([Registers.RA, 0x1]);
     });
   });
+
+  describe('LF multiline program', () => {
+    const crlf = '\n';
+    const twoLineProgram = `ADD RA, 0x1${crlf}SUB RA, 0x1`;
+
+    it('should parse into countOf(LF)+1 instructions', () => {
+      const program: IParseNode[] = Reader.parseString(twoLineProgram);
+
+      chai.expect(program)
+        .to.have.length(2);
+    });
+
+    it('should parse into correct nodes', () => {
+      const program: IParseNode[] = Reader.parseString(twoLineProgram);
+      const lineOne: IParseNode = program[0];
+      const lineTwo: IParseNode = program[1];
+
+      chai.expect(lineOne.getOpcode())
+        .to.equal(Opcodes.ADD);
+
+      chai.expect(lineOne.getOperands())
+        .to.eql([Registers.RA, 0x1]);
+
+      chai.expect(lineTwo.getOpcode())
+        .to.equal(Opcodes.SUB);
+
+      chai.expect(lineTwo.getOperands())
+        .to.eql([Registers.RA, 0x1]);
+    });
+  });
 });
