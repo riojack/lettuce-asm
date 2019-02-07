@@ -13,4 +13,13 @@ describe('register memory', () => {
     chai.expect(mem.read(address))
       .to.equal(bytes);
   });
+
+  it('should fail trying to write beyond 0x0000000A', () => {
+    const mem: RegisterMemory = new RegisterMemory();
+    const address: number = 0x0000000B;
+
+    chai.expect(() => mem.write(address, 0x1))
+      .to.throw("Cannot write to register beyond 0x0000000A.");
+  });
+
 });
