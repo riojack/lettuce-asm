@@ -38,4 +38,12 @@ describe('register memory', () => {
       .to.throw("Cannot read registers beyond 0x0000000A.");
   });
 
+  it('should fail trying to read a negative memory location', () => {
+    const mem: RegisterMemory = new RegisterMemory();
+    const address: number = -0x0000000B;
+
+    chai.expect(() => mem.read(address))
+      .to.throw("Cannot read from a negative register.  That doesn't even make sense!");
+  });
+
 });

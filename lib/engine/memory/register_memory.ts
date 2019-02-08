@@ -20,6 +20,10 @@ class RegisterMemory {
       throw `Cannot read registers beyond ${this.MAX_ADDRESS_NAME}.`;
     }
 
+    if (address < 0x0) {
+      throw "Cannot read from a negative register.  That doesn't even make sense!";
+    }
+
     return this.memory[address];
   }
 }
