@@ -16,6 +16,10 @@ class RegisterMemory {
   }
 
   read(address: number): number {
+    if (address > this.MAX_ADDRESS) {
+      throw `Cannot read registers beyond ${this.MAX_ADDRESS_NAME}.`;
+    }
+
     return this.memory[address];
   }
 }
