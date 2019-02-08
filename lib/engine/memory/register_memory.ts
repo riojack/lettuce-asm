@@ -7,6 +7,11 @@ class RegisterMemory {
     if (address > this.MAX_ADDRESS) {
       throw `Cannot write to register beyond ${this.MAX_ADDRESS_NAME}.`;
     }
+
+    if (address < 0x0) {
+      throw "About to write to negative-- wait, what?";
+    }
+
     this.memory[address] = bytes;
   }
 

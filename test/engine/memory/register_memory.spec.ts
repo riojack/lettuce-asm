@@ -22,4 +22,12 @@ describe('register memory', () => {
       .to.throw("Cannot write to register beyond 0x0000000A.");
   });
 
+  it('should fail trying to write a negative memory location', () => {
+    const mem: RegisterMemory = new RegisterMemory();
+    const address: number = -0x0000000B;
+
+    chai.expect(() => mem.write(address, 0x1))
+      .to.throw("About to write to negative-- wait, what?");
+  });
+
 });
