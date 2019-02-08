@@ -44,7 +44,7 @@ Instructions
 
     OPECODE Reference
 
-    Arithmetic 
+    Arithmetic
 
     ADD A B
       Adds B to A and stores it in A
@@ -58,7 +58,7 @@ Instructions
     DEC A
       Subtracts 1 from A and stores it in A
 
-    MUL A B 
+    MUL A B
       Multiplies A by B and stores it in A
 
     DIV A B
