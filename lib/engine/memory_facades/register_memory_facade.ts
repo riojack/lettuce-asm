@@ -16,6 +16,9 @@ class RegisterMemoryFacade {
   }
 
   write(register: string, bytes: number): void {
+    if (!this.registerMemoryMap.has(register)) {
+      throw `"${register}" is not a valid register.`;
+    }
     const addressToWriteTo: number = this.registerMemoryMap.get(register)
 
     this.registerMemory.write(addressToWriteTo, bytes);
