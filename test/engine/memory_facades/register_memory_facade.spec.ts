@@ -30,8 +30,7 @@ describe('register memory facade', () => {
 
   it('should throw an exception if writing to a register that does not exist', () => {
     const invalidRegister: string = "XY";
-    const memory: RegisterMemory = new RegisterMemory();
-    const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
+    const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
     chai.expect(() => facade.write(invalidRegister, 0xb00))
       .to.throw(`"${invalidRegister}" is not a valid register to write to.`);
@@ -51,8 +50,7 @@ describe('register memory facade', () => {
 
   it('should throw an exception if reading from a register that does not exist', () => {
     const invalidRegister: string = "XY";
-    const memory: RegisterMemory = new RegisterMemory();
-    const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
+    const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
     chai.expect(() => facade.read(invalidRegister))
       .to.throw(`"${invalidRegister}" is not a valid register to read from.`);
