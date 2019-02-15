@@ -34,7 +34,7 @@ describe('register memory facade', () => {
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
 
     chai.expect(() => facade.write(invalidRegister, 0xb00))
-      .to.throw(`"${invalidRegister}" is not a valid register.`);
+      .to.throw(`"${invalidRegister}" is not a valid register to write to.`);
   });
 
   testParameters.forEach((parameters: { register: string, expectedAddress: number }) => {
