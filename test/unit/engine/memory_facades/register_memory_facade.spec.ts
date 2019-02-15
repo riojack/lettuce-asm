@@ -1,5 +1,5 @@
-import RegisterMemoryFacade from "../../../lib/engine/memory_facades/register_memory_facade";
-import RegisterMemory from "../../../lib/engine/memory/register_memory";
+import RegisterMemoryFacade from "../../../../lib/engine/memory_facades/register_memory_facade";
+import RegisterMemory from "../../../../lib/engine/memory/register_memory";
 
 import * as chai from 'chai';
 

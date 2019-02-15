@@ -1,4 +1,4 @@
-import RegisterMemory from '../../../lib/engine/memory/register_memory';
+import RegisterMemory from '../../../../lib/engine/memory/register_memory';
 
 import * as chai from 'chai';
 

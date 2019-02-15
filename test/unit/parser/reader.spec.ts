@@ -1,7 +1,7 @@
-import Reader from '../../lib/parser/reader';
-import IParseNode from '../../lib/parser/nodes/parse_node';
-import Opcodes from '../../lib/lexis/opcodes';
-import Registers from '../../lib/lexis/registers';
+import Reader from '../../../lib/parser/reader';
+import IParseNode from '../../../lib/parser/nodes/parse_node';
+import Opcodes from '../../../lib/lexis/opcodes';
+import Registers from '../../../lib/lexis/registers';
 
 import * as chai from 'chai';
 
