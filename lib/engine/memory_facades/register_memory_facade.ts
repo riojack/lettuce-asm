@@ -25,6 +25,9 @@ class RegisterMemoryFacade {
   }
 
   read(register: string): number {
+    if (!this.registerMemoryMap.has(register)) {
+      throw `"${register}" is not a valid register to read from.`;
+    }
     const addressToReadFrom: number = this.registerMemoryMap.get(register)
 
     return this.registerMemory.read(addressToReadFrom);

@@ -28,7 +28,7 @@ describe('register memory facade', () => {
     });
   });
 
-  it('should throw an exception if the register is not valid', () => {
+  it('should throw an exception if writing to a register that does not exist', () => {
     const invalidRegister: string = "XY";
     const memory: RegisterMemory = new RegisterMemory();
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
@@ -47,5 +47,14 @@ describe('register memory facade', () => {
       chai.expect(facade.read(parameters.register))
         .to.eql(0xb02);
     });
+  });
+
+  it('should throw an exception if reading from a register that does not exist', () => {
+    const invalidRegister: string = "XY";
+    const memory: RegisterMemory = new RegisterMemory();
+    const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
+
+    chai.expect(() => facade.read(invalidRegister))
+      .to.throw(`"${invalidRegister}" is not a valid register to read from.`);
   });
 });
