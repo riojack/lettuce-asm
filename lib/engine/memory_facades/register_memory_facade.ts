@@ -24,7 +24,11 @@ class RegisterMemoryFacade {
     this.registerMemory.write(addressToWriteTo, bytes);
   }
 
-  read(register: string): number { return 0x0; }
+  read(register: string): number {
+    const addressToReadFrom: number = this.registerMemoryMap.get(register)
+
+    return this.registerMemory.read(addressToReadFrom);
+  }
 }
 
 export default RegisterMemoryFacade;
