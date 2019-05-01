@@ -20,14 +20,16 @@ describe('interpreter mutator', () => {
   });
 
   describe('ADD mutator', () => {
-    it('should return a terminal state with register RA set to one for program "ADD RA, 0x1"', () => {
-      const instructionNode: IParseNode = new InstructionNode(Opcodes.ADD, "", [Registers.RA, 0x1]);
-      const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
+    context('for program "ADD RA, 0x1"', () => {
+      it('should return a terminal state with register RA set to one', () => {
+        const instructionNode: IParseNode = new InstructionNode(Opcodes.ADD, "", [Registers.RA, 0x1]);
+        const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
 
-      const newState: TerminalState = addMutatorFunc(instructionNode, previousState);
+        const newState: TerminalState = addMutatorFunc(instructionNode, previousState);
 
-      chai.expect(newState.readRegister(Registers.RA))
-        .to.equal(0x1);
+        chai.expect(newState.readRegister(Registers.RA))
+          .to.equal(0x1);
+      });
     });
   });
 });
