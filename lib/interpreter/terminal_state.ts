@@ -1,7 +1,7 @@
 import RegisterMemoryFacade from "../engine/memory_facades/register_memory_facade";
 
 class TerminalState {
-  private registerMemory: RegisterMemoryFacade;
+  registerMemory: RegisterMemoryFacade;
 
   constructor(regMemory: RegisterMemoryFacade) {
     this.registerMemory = regMemory;
