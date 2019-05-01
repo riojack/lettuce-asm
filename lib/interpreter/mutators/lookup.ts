@@ -9,7 +9,10 @@ const addMutator: MutatorFunc = (node: IParseNode, previousState: TerminalState)
   const memory: RegisterMemoryFacade = previousState.registerMemory;
   const [register, bytes]: [string, number] = <[string, number]>node.getOperands();
 
-  memory.write(register, bytes);
+  const currentValueInRegister: number = memory.read(register);
+  const nextValueForRegister = currentValueInRegister + bytes;
+
+  memory.write(register, nextValueForRegister);
 
   return new TerminalState(memory);
 };
