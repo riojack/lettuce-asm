@@ -6,6 +6,8 @@
   "author": "",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint ./**/*.ts",
+    "pretest": "yarn lint",
     "test": "mocha test"
   },
   "dependencies": {
