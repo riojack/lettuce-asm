@@ -3,8 +3,8 @@ import RegisterMemory from "../../../../lib/engine/memory/register_memory";
 
 import * as chai from 'chai';
 
-describe('register memory facade', () => {
-  const testParameters: Array<{ register: string, expectedAddress: number }> = [
+describe('register memory facade', (): void => {
+  const testParameters: { register: string; expectedAddress: number }[] = [
     { register: 'RA', expectedAddress: 0x00000000 },
     { register: 'RB', expectedAddress: 0x00000001 },
     { register: 'RC', expectedAddress: 0x00000002 },
@@ -16,8 +16,8 @@ describe('register memory facade', () => {
     { register: 'AR', expectedAddress: 0x00000008 }
   ];
 
-  testParameters.forEach((parameters: { register: string, expectedAddress: number }) => {
-    it(`should write register ${parameters.register} to address ${parameters.expectedAddress}`, () => {
+  testParameters.forEach((parameters: { register: string; expectedAddress: number }): void => {
+    it(`should write register ${parameters.register} to address ${parameters.expectedAddress}`, (): void => {
       const memory: RegisterMemory = new RegisterMemory();
       const facade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
 
@@ -28,16 +28,16 @@ describe('register memory facade', () => {
     });
   });
 
-  it('should throw an exception if writing to a register that does not exist', () => {
-    const invalidRegister: string = "XY";
+  it('should throw an exception if writing to a register that does not exist', (): void => {
+    const invalidRegister = "XY";
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
-    chai.expect(() => facade.write(invalidRegister, 0xb00))
+    chai.expect((): void => facade.write(invalidRegister, 0xb00))
       .to.throw(`"${invalidRegister}" is not a valid register to write to.`);
   });
 
-  testParameters.forEach((parameters: { register: string, expectedAddress: number }) => {
-    it(`should read register ${parameters.register} from address ${parameters.expectedAddress}`, () => {
+  testParameters.forEach((parameters: { register: string; expectedAddress: number }): void => {
+    it(`should read register ${parameters.register} from address ${parameters.expectedAddress}`, (): void => {
       const memory: RegisterMemory = new RegisterMemory();
       memory.write(parameters.expectedAddress, 0xb02);
 
@@ -48,11 +48,12 @@ describe('register memory facade', () => {
     });
   });
 
-  it('should throw an exception if reading from a register that does not exist', () => {
-    const invalidRegister: string = "XY";
+  it('should throw an exception if reading from a register that does not exist', (): void => {
+    const invalidRegister = "XY";
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
-    chai.expect(() => facade.read(invalidRegister))
-      .to.throw(`"${invalidRegister}" is not a valid register to read from.`);
+    chai.expect((): void => {
+      facade.read(invalidRegister);
+    }).to.throw(`"${invalidRegister}" is not a valid register to read from.`);
   });
 });

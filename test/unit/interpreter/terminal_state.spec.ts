@@ -4,9 +4,9 @@ import RegisterMemory from '../../../lib/engine/memory/register_memory';
 import TerminalState from '../../../lib/interpreter/terminal_state';
 import Registers from '../../../lib/lexis/registers';
 
-describe('terminal state', () => {
-  describe('readRegister', () => {
-    it('should fetch the value from register memory facade', () => {
+describe('terminal state', (): void => {
+  describe('readRegister', (): void => {
+    it('should fetch the value from register memory facade', (): void => {
       const memory: RegisterMemory = new RegisterMemory();
       const memoryFacade: RegisterMemoryFacade = new RegisterMemoryFacade(memory);
 

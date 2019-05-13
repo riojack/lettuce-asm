@@ -1,7 +1,12 @@
-import IParseNode from "./nodes/parse_node";
+import ParseNode from "./nodes/parse_node";
 import InstructionNode from "./nodes/instruction_node";
 
-const LF: string = '\n';
+interface Segment {
+  token: string;
+  stoppedAt: number;
+};
+
+const LF = '\n';
 
 function getTokenMatchingUntilBySize(value: string, until: string, index: number): boolean {
   const indexPlusOne: number = index + 1;
@@ -16,10 +21,10 @@ function getTokenMatchingUntilBySize(value: string, until: string, index: number
   return false;
 }
 
-function readUntil(value: string, until: string, start: number = 0): { token: string, stoppedAt: number } {
+function readUntil(value: string, until: string, start: number = 0): Segment {
   const tokens: string[] = [];
   const untilSize: number = until.length;
-  let i = start;
+  let i: number = start;
 
   for (; i < value.length; i++) {
     if (untilSize > 0 && getTokenMatchingUntilBySize(value, until, i)) {
@@ -35,17 +40,17 @@ function readUntil(value: string, until: string, start: number = 0): { token: st
 }
 
 class Reader {
-  public static parseString(program: string): IParseNode[] {
-    const nodes: IParseNode[] = [];
+  public static parseString(program: string): ParseNode[] {
+    const nodes: ParseNode[] = [];
     const programLastPosition: number = program.length - 1;
 
-    let reachedEnd: boolean = false;
-    let programLine = readUntil(program, LF);
+    let reachedEnd = false;
+    let programLine: Segment = readUntil(program, LF);
 
     while (!reachedEnd) {
-      const opcode = readUntil(programLine.token, ' ');
-      const operandOne = readUntil(programLine.token, ',', opcode.stoppedAt + 2);
-      const operandTwo = readUntil(programLine.token, '', operandOne.stoppedAt + 2);
+      const opcode: Segment = readUntil(programLine.token, ' ');
+      const operandOne: Segment = readUntil(programLine.token, ',', opcode.stoppedAt + 2);
+      const operandTwo: Segment = readUntil(programLine.token, '', operandOne.stoppedAt + 2);
 
       const node: InstructionNode = new InstructionNode(
         opcode.token,

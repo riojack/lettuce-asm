@@ -8,19 +8,19 @@ import Registers from '../../../../../lib/lexis/registers';
 import RegisterMemory from '../../../../../lib/engine/memory/register_memory';
 import RegisterMemoryFacade from '../../../../../lib/engine/memory_facades/register_memory_facade';
 
-describe('ADD mutator', () => {
+describe('ADD mutator', (): void => {
   let memory: RegisterMemory;
   let memoryFacade: RegisterMemoryFacade;
   let previousState: TerminalState;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     memory = new RegisterMemory();
     memoryFacade = new RegisterMemoryFacade(memory);
     previousState = new TerminalState(memoryFacade);
   });
 
-  context('for program "ADD RA, 0x1"', () => {
-    it('should return a terminal state with register RA set to one', () => {
+  context('for program "ADD RA, 0x1"', (): void => {
+    it('should return a terminal state with register RA set to one', (): void => {
       const instructionNode: IParseNode = new InstructionNode(Opcodes.ADD, "", [Registers.RA, 0x1]);
       const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
 
@@ -31,8 +31,8 @@ describe('ADD mutator', () => {
     });
   });
 
-  context('for program "ADD RA, 0x1" followed by program "ADD RA, 0x4"', () => {
-    it('should return a terminal state with register RA set to 0x5', () => {
+  context('for program "ADD RA, 0x1" followed by program "ADD RA, 0x4"', (): void => {
+    it('should return a terminal state with register RA set to 0x5', (): void => {
       const addOneNode: IParseNode = new InstructionNode(Opcodes.ADD, "", [Registers.RA, 0x1]);
       const addFourNode: IParseNode = new InstructionNode(Opcodes.ADD, "", [Registers.RA, 0x4]);
 

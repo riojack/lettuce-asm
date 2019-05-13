@@ -1,14 +1,14 @@
-import IParseNode from './parse_node';
+import ParseNode from './parse_node';
 
-class InstructionNode implements IParseNode {
+class InstructionNode implements ParseNode {
   public getOpcode = (): string => "";
   public getAlias = (): string => "";
   public getOperands = (): (string | number)[] => [];
 
-  constructor(opcode: string, alias: string, operands: (string | number)[]) {
-    this.getOpcode = () => opcode;
-    this.getAlias = () => alias;
-    this.getOperands = () => operands;
+  public constructor(opcode: string, alias: string, operands: (string | number)[]) {
+    this.getOpcode = (): string => opcode;
+    this.getAlias = (): string => alias;
+    this.getOperands = (): (string | number)[] => operands;
   }
 }
 

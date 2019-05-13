@@ -5,8 +5,8 @@ import Registers from '../../../lib/lexis/registers';
 
 import * as chai from 'chai';
 
-describe('parser/reader', () => {
-  it('should parse ADD RA, 0x1 into a ADD node with a register operand and an immediate operand', () => {
+describe('parser/reader', (): void => {
+  it('should parse ADD RA, 0x1 into a ADD node with a register operand and an immediate operand', (): void => {
     const node: IParseNode = Reader.parseString('ADD RA, 0x1')[0];
 
     chai.expect(node.getOpcode())
@@ -16,7 +16,7 @@ describe('parser/reader', () => {
       .to.eql([Registers.RA, 0x1]);
   });
 
-  it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', () => {
+  it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', (): void => {
     const node: IParseNode = Reader.parseString('SUB RA, 0x1')[0];
 
     chai.expect(node.getOpcode())
@@ -26,18 +26,18 @@ describe('parser/reader', () => {
       .to.eql([Registers.RA, 0x1]);
   });
 
-  describe('CRLF multiline program', () => {
+  describe('CRLF multiline program', (): void => {
     const crlf = '\r\n';
     const twoLineProgram = `ADD RA, 0x1${crlf}SUB RA, 0x1`;
 
-    it('should parse into countOf(CRLF)+1 instructions', () => {
+    it('should parse into countOf(CRLF)+1 instructions', (): void => {
       const program: IParseNode[] = Reader.parseString(twoLineProgram);
 
       chai.expect(program)
         .to.have.length(2);
     });
 
-    it('should parse into correct nodes', () => {
+    it('should parse into correct nodes', (): void => {
       const program: IParseNode[] = Reader.parseString(twoLineProgram);
       const lineOne: IParseNode = program[0];
       const lineTwo: IParseNode = program[1];
@@ -56,18 +56,18 @@ describe('parser/reader', () => {
     });
   });
 
-  describe('LF multiline program', () => {
+  describe('LF multiline program', (): void => {
     const crlf = '\n';
     const twoLineProgram = `ADD RA, 0x1${crlf}SUB RA, 0x1`;
 
-    it('should parse into countOf(LF)+1 instructions', () => {
+    it('should parse into countOf(LF)+1 instructions', (): void => {
       const program: IParseNode[] = Reader.parseString(twoLineProgram);
 
       chai.expect(program)
         .to.have.length(2);
     });
 
-    it('should parse into correct nodes', () => {
+    it('should parse into correct nodes', (): void => {
       const program: IParseNode[] = Reader.parseString(twoLineProgram);
       const lineOne: IParseNode = program[0];
       const lineTwo: IParseNode = program[1];

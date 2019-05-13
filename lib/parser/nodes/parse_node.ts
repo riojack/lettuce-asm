@@ -1,7 +1,7 @@
-interface IParseNode {
+interface ParseNode {
   getOpcode(): string;
   getAlias(): string;
   getOperands(): (string|number)[];
 }
 
-export default IParseNode;
+export default ParseNode;
