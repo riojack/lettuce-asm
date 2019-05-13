@@ -2,8 +2,9 @@
   "name": "lettuce-asm",
   "version": "0.0.1",
   "description": "Lettuce ASM is a simplified assembly language designed to teach and amuse.",
+  "repository": "https://github.com/riojack/lettuce-asm",
   "main": "index.js",
-  "author": "",
+  "author": "riojack",
   "license": "MIT",
   "scripts": {
     "lint": "eslint ./**/*.ts",
