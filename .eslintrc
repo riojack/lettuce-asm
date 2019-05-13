@@ -5,8 +5,13 @@
   "rules": {
     "quotes": [
       "error",
-      "single"
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
     ],
+    "prefer-template": "error",
+    "no-useless-concat": "error",
     "@typescript-eslint/curly": true,
     "@typescript-eslint/encoding": true,
     "@typescript-eslint/indent": [
