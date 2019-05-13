@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/curly": true,
+    "@typescript-eslint/encoding": true,
+    "@typescript-eslint/indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "@typescript-eslint/no-trailing-whitespace": true,
+    "@typescript-eslint/no-any": true,
+    "@typescript-eslint/number-literal-format": true,
+    "@typescript-eslint/only-arrow-functions": false,
+    "@typescript-eslint/prefer-template": true,
+    "@typescript-eslint/quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "@typescript-eslint/semicolon": true,
+    "@typescript-eslint/trailing-comma": false
+  }
+}
