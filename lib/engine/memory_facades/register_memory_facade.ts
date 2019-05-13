@@ -1,5 +1,5 @@
-import Registers from "../../lexis/registers";
-import RegisterMemory from "../memory/register_memory";
+import Registers from '../../lexis/registers';
+import RegisterMemory from '../memory/register_memory';
 
 class RegisterMemoryFacade {
   private registerMemory: RegisterMemory;

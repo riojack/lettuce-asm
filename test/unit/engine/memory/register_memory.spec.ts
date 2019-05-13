@@ -19,7 +19,7 @@ describe('register memory', (): void => {
     const address = 0x0000000B;
 
     chai.expect((): void => mem.write(address, 0x1))
-      .to.throw("Cannot write to register beyond 0x0000000A.");
+      .to.throw('Cannot write to register beyond 0x0000000A.');
   });
 
   it('should fail trying to write a negative memory location', (): void => {

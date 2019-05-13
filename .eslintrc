@@ -3,6 +3,10 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
     "@typescript-eslint/curly": true,
     "@typescript-eslint/encoding": true,
     "@typescript-eslint/indent": [

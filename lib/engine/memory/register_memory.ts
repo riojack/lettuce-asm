@@ -1,5 +1,5 @@
 class RegisterMemory {
-  private MAX_ADDRESS_NAME = "0x0000000A";
+  private MAX_ADDRESS_NAME = '0x0000000A';
   private MAX_ADDRESS = parseInt(this.MAX_ADDRESS_NAME, 16);
   private memory: Uint32Array = new Uint32Array(this.MAX_ADDRESS);
 
@@ -9,7 +9,7 @@ class RegisterMemory {
     }
 
     if (address < 0x0) {
-      throw "About to write to negative-- wait, what?";
+      throw 'About to write to negative-- wait, what?';
     }
 
     this.memory[address] = bytes;
@@ -21,7 +21,7 @@ class RegisterMemory {
     }
 
     if (address < 0x0) {
-      throw "Cannot read from a negative register.  That doesn't even make sense!";
+      throw 'Cannot read from a negative register.  That doesn\'t even make sense!';
     }
 
     return this.memory[address];

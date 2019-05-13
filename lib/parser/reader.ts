@@ -1,5 +1,5 @@
-import ParseNode from "./nodes/parse_node";
-import InstructionNode from "./nodes/instruction_node";
+import ParseNode from './nodes/parse_node';
+import InstructionNode from './nodes/instruction_node';
 
 interface Segment {
   token: string;
@@ -54,7 +54,7 @@ class Reader {
 
       const node: InstructionNode = new InstructionNode(
         opcode.token,
-        "",
+        '',
         [operandOne.token, parseInt(operandTwo.token)]
       );
 

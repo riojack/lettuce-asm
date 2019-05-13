@@ -1,4 +1,4 @@
-import RegisterMemoryFacade from "../engine/memory_facades/register_memory_facade";
+import RegisterMemoryFacade from '../engine/memory_facades/register_memory_facade';
 
 class TerminalState {
   public registerMemory: RegisterMemoryFacade;

@@ -1,5 +1,5 @@
-import RegisterMemoryFacade from "../../../../lib/engine/memory_facades/register_memory_facade";
-import RegisterMemory from "../../../../lib/engine/memory/register_memory";
+import RegisterMemoryFacade from '../../../../lib/engine/memory_facades/register_memory_facade';
+import RegisterMemory from '../../../../lib/engine/memory/register_memory';
 
 import * as chai from 'chai';
 
@@ -29,7 +29,7 @@ describe('register memory facade', (): void => {
   });
 
   it('should throw an exception if writing to a register that does not exist', (): void => {
-    const invalidRegister = "XY";
+    const invalidRegister = 'XY';
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
     chai.expect((): void => facade.write(invalidRegister, 0xb00))
@@ -49,7 +49,7 @@ describe('register memory facade', (): void => {
   });
 
   it('should throw an exception if reading from a register that does not exist', (): void => {
-    const invalidRegister = "XY";
+    const invalidRegister = 'XY';
     const facade: RegisterMemoryFacade = new RegisterMemoryFacade(new RegisterMemory());
 
     chai.expect((): void => {

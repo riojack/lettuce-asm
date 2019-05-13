@@ -1,8 +1,8 @@
-import Interpreter from "../../lib/interpreter/interpreter";
-import TerminalState from "../../lib/interpreter/terminal_state";
+import Interpreter from '../../lib/interpreter/interpreter';
+import TerminalState from '../../lib/interpreter/terminal_state';
 
 import * as chai from 'chai';
-import Registers from "../../lib/lexis/registers";
+import Registers from '../../lib/lexis/registers';
 
 describe('Arithmetic', (): void => {
   describe('given the program ADD RA, 0x1 repeated 3 times, when executed...', (): void => {

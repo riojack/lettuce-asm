@@ -1,7 +1,7 @@
-import IParseNode from "../../../parser/nodes/parse_node";
-import TerminalState from "../../terminal_state";
-import RegisterMemoryFacade from "../../../engine/memory_facades/register_memory_facade";
-import { MutatorFunc } from "../lookup";
+import IParseNode from '../../../parser/nodes/parse_node';
+import TerminalState from '../../terminal_state';
+import RegisterMemoryFacade from '../../../engine/memory_facades/register_memory_facade';
+import { MutatorFunc } from '../lookup';
 
 export const addMutator: MutatorFunc = (node: IParseNode, previousState: TerminalState): TerminalState => {
   const memory: RegisterMemoryFacade = previousState.registerMemory;
