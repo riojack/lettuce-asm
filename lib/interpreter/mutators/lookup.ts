@@ -1,23 +1,11 @@
 import IParseNode from "../../parser/nodes/parse_node";
 import TerminalState from "../terminal_state";
 import Opcodes from "../../lexis/opcodes";
-import RegisterMemoryFacade from "../../engine/memory_facades/register_memory_facade";
+import * as addMutatorFunc from "./functions/addMutator";
 
 export type MutatorFunc = ((node: IParseNode, previousState: TerminalState) => TerminalState);
 
-const addMutator: MutatorFunc = (node: IParseNode, previousState: TerminalState): TerminalState => {
-  const memory: RegisterMemoryFacade = previousState.registerMemory;
-  const [register, bytes]: [string, number] = <[string, number]>node.getOperands();
-
-  const currentValueInRegister: number = memory.read(register);
-  const nextValueForRegister = currentValueInRegister + bytes;
-
-  memory.write(register, nextValueForRegister);
-
-  return new TerminalState(memory);
-};
-
 export const MutatorLookup: Readonly<{ [key: string]: MutatorFunc }>
   = Object.freeze<{ [key: string]: MutatorFunc }>({
-    [Opcodes.ADD]: addMutator
+    [Opcodes.ADD]: addMutatorFunc.addMutator
   });
