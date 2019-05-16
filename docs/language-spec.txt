@@ -5,17 +5,9 @@ Registers
 
   General purpose registers.
 
-  AR
+  LD
 
-  Stores the result of the last arithmetic operation.
-
-  NR
-
-  Stores the result of the last NCALL.
-
-  NL
-
-  Flag bit indicating the state of the last read.
+  Special register for holding results from the most recent data operation.
 
 
 Instructions
@@ -65,23 +57,31 @@ Instructions
       Divides A by B and stores it in A
       TODO: Float?
 
-    Reads and Writes
+    Data Operations
     ---------------------------------------------
 
     MOV A B
-      Move data from A to B.
+      Move data from A to B.  LD register is not changed.
+
+    LDB 0x3AC1
+      Load the lowest byte from the address or register into the LD register.
+
+    LSH RC
+      Left shift the value at the address or register by one byte.  LD register is not changed.
+
+    RSH RC
+      Right shift the value at the address or register by one byte.  LD register is not changed.
 
     Data Definitions
     ---------------------------------------------
 
-    FI FOO 58d
+    FI FOO 0x64d
       Creates a "fixed" integer value in memory that cannot be changed.  Its value can be referenced by its alias.
 
       Also called: constant, equate.
 
     CS BAR 'A string of characters.'
     CS BAR "Another string of characters."
-    CS BAR """Yet another string of characters."""
       Creates a "fixed" sequence of bytes that cannot be changed.  Its value can be referenced by its alias.
 
     System Access
@@ -90,19 +90,14 @@ Instructions
     SYSCALL <Operand>
       Performs a system call.
 
-    NCALL <OPCODE> <Native Alias>
-      Performs a "native call" which will trigger the opcode on the native alias.
-      Example NCALL LDB @COM1
-        Reads a single byte from COM1.  Result is stored in NR register.  Note that system devices that support Direct Memory Access, NR is always 0xFFFF.
-
-    SIO ROM Aliases
+    SIO Aliases
     ---------------------------------------------
 
     @COM1
-      Native alias for COM1 in the SIO ROM.
+      Native alias for COM1 in the SIO.
 
     @COM2
-      Native alias for COM2 in the SIO ROM.
+      Native alias for COM2 in the SIO.
 
     @COM3
-      Native alias for COM3 in the SIO ROM.
+      Native alias for COM3 in the SIO.
