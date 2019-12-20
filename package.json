@@ -18,7 +18,7 @@
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
+    "eslint": "^6.7.2",
     "husky": "^2.2.0",
     "mocha": "^5.2.0",
     "ts-node": "^8.0.2",
