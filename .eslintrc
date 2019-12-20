@@ -1,6 +1,19 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [
+      "./tsconfig.eslint.json", "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
-    "plugin:@typescript-eslint/recommended"
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "rules": {
     "quotes": [
@@ -10,26 +23,17 @@
         "allowTemplateLiterals": true
       }
     ],
-    "prefer-template": "error",
     "no-useless-concat": "error",
-    "@typescript-eslint/curly": true,
-    "@typescript-eslint/encoding": true,
+    "curly": "error",
     "@typescript-eslint/indent": [
-      true,
-      "spaces",
+      "error",
       2
     ],
-    "@typescript-eslint/no-trailing-whitespace": true,
-    "@typescript-eslint/no-any": true,
-    "@typescript-eslint/number-literal-format": true,
-    "@typescript-eslint/only-arrow-functions": false,
-    "@typescript-eslint/prefer-template": true,
-    "@typescript-eslint/quotemark": [
-      true,
-      "single",
-      "avoid-escape"
-    ],
-    "@typescript-eslint/semicolon": true,
-    "@typescript-eslint/trailing-comma": false
+    "no-trailing-spaces": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "only-arrow-functions": "off",
+    "prefer-template": "error",
+    "semi": "error",
+    "trailing-comma": "off"
   }
 }

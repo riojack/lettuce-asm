@@ -4,7 +4,7 @@ import InstructionNode from './nodes/instruction_node';
 interface Segment {
   token: string;
   stoppedAt: number;
-};
+}
 
 const LF = '\n';
 
@@ -21,7 +21,7 @@ function getTokenMatchingUntilBySize(value: string, until: string, index: number
   return false;
 }
 
-function readUntil(value: string, until: string, start: number = 0): Segment {
+function readUntil(value: string, until: string, start = 0): Segment {
   const tokens: string[] = [];
   const untilSize: number = until.length;
   let i: number = start;

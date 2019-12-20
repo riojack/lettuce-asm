@@ -19,7 +19,7 @@ class RegisterMemoryFacade {
     if (!this.registerMemoryMap.has(register)) {
       throw `"${register}" is not a valid register to write to.`;
     }
-    const addressToWriteTo: number = this.registerMemoryMap.get(register)
+    const addressToWriteTo: number = this.registerMemoryMap.get(register);
 
     this.registerMemory.write(addressToWriteTo, bytes);
   }
@@ -28,7 +28,7 @@ class RegisterMemoryFacade {
     if (!this.registerMemoryMap.has(register)) {
       throw `"${register}" is not a valid register to read from.`;
     }
-    const addressToReadFrom: number = this.registerMemoryMap.get(register)
+    const addressToReadFrom: number = this.registerMemoryMap.get(register);
 
     return this.registerMemory.read(addressToReadFrom);
   }
