@@ -92,6 +92,8 @@ Instructions
 
     SIO Aliases
     ---------------------------------------------
+    When the compiler encounters a SIO (standard input and output) alias, the code is modified to perform a special
+    system call that accesses the specific COM port.
 
     @COM1
       Native alias for COM1 in the SIO.
