@@ -15,3 +15,27 @@ COM Block Structure
 
   00000000 00000000 0000000000000000
    FIELD1   FIELD2    DATA PACKET
+
+Receiving Data from a Peripheral Over COM
+
+  Devices must first be initialized in SIO.
+
+  When a device is ready to send data to the system, it will first send a hardware interrupt to the system.  If the
+  system is able to receive data from the peripheral, the system will then read a block of data from the device and
+  store it in a buffer.  If the system is not able to receive data, the system will set a value in PFLG.
+
+
+PFLG Layout and Common Reasons (for COM peripherals):
+
+  COM peripheral PLFG values have the following layout:
+
+     ___________ 32 BITS ___________
+    |                               |
+
+    00000000 000000000000000000000000
+    COM PORT      REASON PACKET
+
+  The first 8 bits specify the port.  The remaining 24 bits specify a reason.
+
+  Common Reasons (REASON PACKET values):
+    0x000 - Unknown flag reason.

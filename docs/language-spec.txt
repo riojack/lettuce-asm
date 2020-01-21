@@ -5,10 +5,9 @@ Registers
 
   General purpose registers.
 
-  LD
+  PFLG
 
-  Special register for holding results from the most recent data operation.
-
+  Special register indicating a peripheral read or write failure.
 
 Instructions
 ---------------------------------------------
