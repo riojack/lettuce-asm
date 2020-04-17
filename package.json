@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint ./**/*.ts",
+    "fixlint": "yarn lint --fix",
     "pretest": "yarn lint",
     "test": "mocha test"
   },
