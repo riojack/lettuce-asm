@@ -5,7 +5,7 @@ import Opcodes from '../../../../lib/lexis/opcodes';
 
 describe('interpreter mutators', (): void => {
   it('should support the ADD opcode', (): void => {
-    chai.expect(MutatorLookup).to.have.key(Opcodes.ADD);
+    chai.expect(MutatorLookup).to.include.keys(Opcodes.ADD);
     chai.expect(MutatorLookup[Opcodes.ADD]).to.equal(addMutator);
   });
 });
