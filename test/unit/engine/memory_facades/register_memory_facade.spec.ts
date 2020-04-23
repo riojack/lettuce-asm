@@ -13,7 +13,7 @@ describe('register memory facade', (): void => {
     { register: 'RF', expectedAddress: 0x00000005 },
     { register: 'RG', expectedAddress: 0x00000006 },
     { register: 'RH', expectedAddress: 0x00000007 },
-    { register: 'AR', expectedAddress: 0x00000008 }
+    { register: 'ARMR', expectedAddress: 0x00000008 }
   ];
 
   testParameters.forEach((parameters: { register: string; expectedAddress: number }): void => {

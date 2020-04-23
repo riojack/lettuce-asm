@@ -9,7 +9,7 @@ class Registers {
   public static readonly RG: string = 'RG';
   public static readonly RH: string = 'RH';
   // Arithmetic
-  public static readonly AR: string = 'AR';
+  public static readonly ARMR: string = 'ARMR';
 }
 
 export default Registers;
