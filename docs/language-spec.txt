@@ -33,7 +33,7 @@ Instructions
     MOV RA, 32d
     ADD RA, [RA]  ; RA = RA + MEM[32d]
 
-    OPECODE Reference
+    OPCODE Reference
 
     Arithmetic
 

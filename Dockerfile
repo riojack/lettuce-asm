@@ -1,5 +1,5 @@
 # This Docker file can be used to produce an image that
-# can then be used for development on Windows platform.
+# can then be used for development on Windows platforms.
 # It will install Yarn.
 
 # Build a new image...
