@@ -1,6 +1,6 @@
 import * as chai from 'chai';
 import TerminalState from '../../../../../lib/interpreter/terminal_state';
-import { MutatorLookup, MutatorFunc } from '../../../../../lib/interpreter/mutators/lookup';
+import {MutatorLookup, MutatorFunc} from '../../../../../lib/interpreter/mutators/lookup';
 import Opcodes from '../../../../../lib/lexis/opcodes';
 import IParseNode from '../../../../../lib/parser/nodes/parse_node';
 import InstructionNode from '../../../../../lib/parser/nodes/instruction_node';
@@ -40,7 +40,6 @@ describe('ADD mutator', (): void => {
 
       const firstNewState: TerminalState = addMutatorFunc(addOneNode, previousState);
       const secondNewState: TerminalState = addMutatorFunc(addFourNode, firstNewState);
-
 
       chai.expect(secondNewState.readRegister(Registers.RA))
         .to.equal(0x5);
