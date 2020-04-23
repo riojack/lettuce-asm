@@ -5,6 +5,10 @@ Registers
 
   General purpose registers.
 
+  ARMR
+
+  Arithmetic remainder.  Read-only.  See specification for the DIV instruction.
+
   PFLG
 
   Special register indicating a peripheral read or write failure.
@@ -53,8 +57,7 @@ Instructions
       Multiplies A by B and stores it in A
 
     DIV A B
-      Divides A by B and stores it in A
-      TODO: Float?
+      Divides A by B and stores the quotient in A and the remainder in ARMR.
 
     Data Operations
     ---------------------------------------------
