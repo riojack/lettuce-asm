@@ -32,6 +32,19 @@ describe('DIV mutator', (): void => {
       chai.expect(secondState.readRegister(Registers.RA))
         .to.equal(0x3);
     });
+
+    it('should return a terminal state with special register ARMR set to 0x1', (): void => {
+      const addNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x7]);
+      const instructionNode: IParseNode = new InstructionNode(Opcodes.DIV, '', [Registers.RA, 0x2]);
+      const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
+      const divMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.DIV];
+
+      const firstState: TerminalState = addMutatorFunc(addNode, previousState);
+      const secondState: TerminalState = divMutatorFunc(instructionNode, firstState);
+
+      chai.expect(secondState.readRegister(Registers.ARMR))
+        .to.equal(0x1);
+    });
   });
 
 });
