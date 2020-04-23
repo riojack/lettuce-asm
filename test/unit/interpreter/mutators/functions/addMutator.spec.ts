@@ -21,7 +21,7 @@ describe('ADD mutator', (): void => {
 
   context('for program "ADD RA, 0x1"', (): void => {
     it('should return a terminal state with register RA set to one', (): void => {
-      const instructionNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x1]);
+      const instructionNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, '0x1']);
       const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
 
       const newState: TerminalState = addMutatorFunc(instructionNode, previousState);
@@ -33,8 +33,8 @@ describe('ADD mutator', (): void => {
 
   context('for program "ADD RA, 0x1" followed by program "ADD RA, 0x4"', (): void => {
     it('should return a terminal state with register RA set to 0x5', (): void => {
-      const addOneNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x1]);
-      const addFourNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x4]);
+      const addOneNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, '0x1']);
+      const addFourNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, '0x4']);
 
       const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
 

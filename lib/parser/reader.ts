@@ -7,6 +7,7 @@ interface Segment {
 }
 
 const LF = '\n';
+const WHITE_SPACE = [' ', LF, '\r', '\t'];
 
 function getTokenMatchingUntilBySize(value: string, until: string, index: number): boolean {
   const indexPlusOne: number = index + 1;
@@ -39,6 +40,15 @@ function readUntil(value: string, until: string, start = 0): Segment {
   };
 }
 
+function cleanWhitespace(value: string): string {
+  return value.split('').reduce((accum: string[], current: string) => {
+    if (WHITE_SPACE.includes((current))) {
+      return accum;
+    }
+    return [...accum, current];
+  }, [] as string[]).join('');
+}
+
 class Reader {
   public static parseString(program: string): ParseNode[] {
     const nodes: ParseNode[] = [];
@@ -55,7 +65,7 @@ class Reader {
       const node: InstructionNode = new InstructionNode(
         opcode.token,
         '',
-        [operandOne.token, parseInt(operandTwo.token)]
+        [operandOne.token, cleanWhitespace(operandTwo.token)]
       );
 
       nodes.push(node);

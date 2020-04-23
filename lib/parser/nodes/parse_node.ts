@@ -1,7 +1,7 @@
 interface ParseNode {
   getOpcode(): string;
   getAlias(): string;
-  getOperands(): (string|number)[];
+  getOperands(): (string)[];
 }
 
 export default ParseNode;

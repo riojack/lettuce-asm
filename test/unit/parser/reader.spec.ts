@@ -13,7 +13,7 @@ describe('parser/reader', (): void => {
       .to.equal(Opcodes.ADD);
 
     chai.expect(node.getOperands())
-      .to.eql([Registers.RA, 0x1]);
+      .to.eql([Registers.RA, '0x1']);
   });
 
   it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', (): void => {
@@ -23,7 +23,7 @@ describe('parser/reader', (): void => {
       .to.equal(Opcodes.SUB);
 
     chai.expect(node.getOperands())
-      .to.eql([Registers.RA, 0x1]);
+      .to.eql([Registers.RA, '0x1']);
   });
 
   describe('CRLF multiline program', (): void => {
@@ -46,13 +46,13 @@ describe('parser/reader', (): void => {
         .to.equal(Opcodes.ADD);
 
       chai.expect(lineOne.getOperands())
-        .to.eql([Registers.RA, 0x1]);
+        .to.eql([Registers.RA, '0x1']);
 
       chai.expect(lineTwo.getOpcode())
         .to.equal(Opcodes.SUB);
 
       chai.expect(lineTwo.getOperands())
-        .to.eql([Registers.RA, 0x1]);
+        .to.eql([Registers.RA, '0x1']);
     });
   });
 
@@ -76,13 +76,13 @@ describe('parser/reader', (): void => {
         .to.equal(Opcodes.ADD);
 
       chai.expect(lineOne.getOperands())
-        .to.eql([Registers.RA, 0x1]);
+        .to.eql([Registers.RA, '0x1']);
 
       chai.expect(lineTwo.getOpcode())
         .to.equal(Opcodes.SUB);
 
       chai.expect(lineTwo.getOperands())
-        .to.eql([Registers.RA, 0x1]);
+        .to.eql([Registers.RA, '0x1']);
     });
   });
 });

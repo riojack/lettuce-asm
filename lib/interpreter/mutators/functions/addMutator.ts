@@ -5,10 +5,11 @@ import { MutatorFunc } from '../lookup';
 
 export const addMutator: MutatorFunc = (node: IParseNode, previousState: TerminalState): TerminalState => {
   const memory: RegisterMemoryFacade = previousState.registerMemory;
-  const [register, bytes]: [string, number] = node.getOperands() as [string, number];
+  const [register, bytes]: [string, string] = node.getOperands() as [string, string];
   const currentValueInRegister: number = memory.read(register);
+  const bytesAsHex: number = parseInt(bytes, 16);
 
-  const nextValueForRegister = currentValueInRegister + bytes;
+  const nextValueForRegister = currentValueInRegister + bytesAsHex;
 
   memory.write(register, nextValueForRegister);
 
