@@ -13,3 +13,7 @@ I kept accidentally committing from within Docker.  This would be fine except th
 author's email had not been set.
 
 Run the new image: `docker run -v path/to/lettuce-asm:/workspace -it riojack/lettuce-asm:dev /bin/bash`.
+
+### Language specification
+
+An assuredly informal set of ever-changing specifications can be found in the [`docs/`](/docs) directory.
