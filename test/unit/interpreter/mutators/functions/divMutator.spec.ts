@@ -19,9 +19,9 @@ describe('DIV mutator', (): void => {
     previousState = new TerminalState(memoryFacade);
   });
 
-  context('for program "ADD RA, 0x6" followed by "DIV RA, 0x2"', (): void => {
+  context('for program "ADD RA, 0x7" followed by "DIV RA, 0x2"', (): void => {
     it('should return a terminal state with register RA set to three', (): void => {
-      const addNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x6]);
+      const addNode: IParseNode = new InstructionNode(Opcodes.ADD, '', [Registers.RA, 0x7]);
       const instructionNode: IParseNode = new InstructionNode(Opcodes.DIV, '', [Registers.RA, 0x2]);
       const addMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.ADD];
       const divMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.DIV];
@@ -33,4 +33,5 @@ describe('DIV mutator', (): void => {
         .to.equal(0x3);
     });
   });
+
 });
