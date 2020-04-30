@@ -1,0 +1,27 @@
+Physical Memory
+---------------------------------------------
+
+	Range: 0x000000 - 0x500000
+
+
+Addressable Memory
+---------------------------------------------
+
+	Range: 0x100000 - 0x500000 (physical)
+		   0x000000 - 0x3FFFFF (virtual)
+
+
+Non-Addressable Memory (N.A.M.)
+---------------------------------------------
+
+	The upper 1024 kilobytes of memory are system reserved as non-addressable
+	memory (N.A.M.).  Programs do not have direct access to N.A.M.
+
+	N.A.M. is divided into ranges reserved for various functions.  These
+	functions are described in the following table.
+
+
+	RANGE                | Residence  | Description
+	---------------------|------------|----------------------------------------
+	0x0000000            | Fixed      | Preamble Marker
+	0x0FFFFFF            | Fixed      | Terminator Marker
