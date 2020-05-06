@@ -8,16 +8,16 @@ Addressable Memory
 ---------------------------------------------
 
 	Range: 0x100000 - 0x500000 (physical)
-		   0x000000 - 0x3FFFFF (virtual)
+		     0x000000 - 0x3FFFFF (virtual)
 
 
-Non-Addressable Memory (N.A.M.)
+Non-Addressable Memory
 ---------------------------------------------
 
 	The upper 1024 kilobytes of memory are system reserved as non-addressable
-	memory (N.A.M.).  Programs do not have direct access to N.A.M.
+	memory (NAM).  Programs do not have direct access to NAM.
 
-	N.A.M. is divided into ranges reserved for various functions.  These
+	NAM is divided into ranges reserved for various functions.  These
 	functions are described in the following table.
 
 
