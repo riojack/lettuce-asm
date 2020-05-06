@@ -1,27 +1,30 @@
 Physical Memory
 ---------------------------------------------
 
-	Range: 0x000000 - 0x500000
+  Range: 0x000000 - 0x500000
 
 
 Addressable Memory
 ---------------------------------------------
 
-	Range: 0x100000 - 0x500000 (physical)
-		     0x000000 - 0x3FFFFF (virtual)
+  Range: 0x100000 - 0x500000 (physical)
+         0x000000 - 0x3FFFFF (virtual)
 
 
 Non-Addressable Memory
 ---------------------------------------------
 
-	The upper 1024 kilobytes of memory are system reserved as non-addressable
-	memory (NAM).  Programs do not have direct access to NAM.
+  The upper 1024 kilobytes of memory are system reserved as non-addressable
+  memory (NAM).  Programs do not have direct access to NAM.
 
-	NAM is divided into ranges reserved for various functions.  These
-	functions are described in the following table.
+  NAM is divided into ranges reserved for various functions.  These
+  functions are described in the following table.
 
 
-	RANGE                | Residence  | Description
-	---------------------|------------|----------------------------------------
-	0x0000000            | Fixed      | Preamble Marker
-	0x0FFFFFF            | Fixed      | Terminator Marker
+  ADDRESS     | SIZE        | Description
+  ------------|-------------|------------------------------------------------------
+  0x0000000   |  4 bytes    | Preamble Marker
+  0xA000000   | 16 bytes    | COM1 Buffer
+  0xA000016   | 16 bytes    | COM2 Buffer
+  0xA00002C   | 16 bytes    | COM3 Buffer
+  0x0FFFFFF   |  4 bytes    | Terminator Marker
