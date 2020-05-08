@@ -10,4 +10,12 @@ describe('standard memory', (): void => {
     chai.expect((): void => mem.write(address, 0x1))
       .to.throw('Cannot write to memory beyond 0x3FFFFF.');
   });
+
+  it('should fail to write to locations less than 0x0', () => {
+    const mem: StandardMemory = new StandardMemory();
+    const address = -0x4DA4404;
+
+    chai.expect((): void => mem.write(address, 0x1))
+      .to.throw('Cannot write to negative memory locations.  That really doesn\'t make sense anyway.');
+  });
 });

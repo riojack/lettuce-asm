@@ -4,6 +4,9 @@ class StandardMemory {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public write(address: number, bytes: number): void {
+    if (address < 0) {
+      throw 'Cannot write to negative memory locations.  That really doesn\'t make sense anyway.';
+    }
     throw `Cannot write to memory beyond ${this.MAX_ADDRESS_NAME}.`;
   }
 }
