@@ -1,8 +1,8 @@
 class StandardMemory {
   private MAX_ADDRESS_NAME = '0x3FFFFF';
   private MAX_ADDRESS = parseInt(this.MAX_ADDRESS_NAME, 16);
+  private memory: Uint32Array = new Uint32Array(this.MAX_ADDRESS);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public write(address: number, bytes: number): void {
     if (address < 0) {
       throw 'Cannot write to negative memory locations.  That really doesn\'t make sense anyway.';
@@ -10,6 +10,12 @@ class StandardMemory {
     else if (address > this.MAX_ADDRESS) {
       throw `Cannot write to memory beyond ${this.MAX_ADDRESS_NAME}.`;
     }
+
+    this.memory[address] = bytes;
+  }
+
+  public read(address: number): number {
+    return this.memory[address];
   }
 }
 

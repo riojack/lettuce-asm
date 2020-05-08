@@ -18,4 +18,15 @@ describe('standard memory', (): void => {
     chai.expect((): void => mem.write(address, 0x1))
       .to.throw('Cannot write to negative memory locations.  That really doesn\'t make sense anyway.');
   });
+
+  it('should read back what was written to standard memory', (): void => {
+    const mem: StandardMemory = new StandardMemory();
+    const address = 0x000C0000;
+    const bytes = 0x87003200;
+
+    mem.write(address, bytes);
+
+    chai.expect(mem.read(address))
+      .to.equal(bytes);
+  });
 });
