@@ -7,7 +7,9 @@ class StandardMemory {
     if (address < 0) {
       throw 'Cannot write to negative memory locations.  That really doesn\'t make sense anyway.';
     }
-    throw `Cannot write to memory beyond ${this.MAX_ADDRESS_NAME}.`;
+    else if (address > this.MAX_ADDRESS) {
+      throw `Cannot write to memory beyond ${this.MAX_ADDRESS_NAME}.`;
+    }
   }
 }
 
