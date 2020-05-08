@@ -39,4 +39,14 @@ describe('standard memory', (): void => {
     })
       .to.throw('Cannot read from a negative memory location.  Hah!');
   });
+
+  it('should fail to read from locations beyond 0x3FFFFF in standard memory', () => {
+    const mem: StandardMemory = new StandardMemory();
+    const address = 0x412345;
+
+    chai.expect((): void => {
+      mem.read(address);
+    })
+      .to.throw('Cannot read beyond 0x3FFFFF.  Really, there\'s nothing there.');
+  });
 });

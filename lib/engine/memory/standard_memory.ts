@@ -18,6 +18,10 @@ class StandardMemory {
     if (address < 0) {
       throw 'Cannot read from a negative memory location.  Hah!';
     }
+    else if (address > this.MAX_ADDRESS) {
+      throw `Cannot read beyond ${this.MAX_ADDRESS_NAME}.  Really, there's nothing there.`;
+    }
+
     return this.memory[address];
   }
 }
