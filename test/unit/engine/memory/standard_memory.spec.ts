@@ -29,4 +29,14 @@ describe('standard memory', (): void => {
     chai.expect(mem.read(address))
       .to.equal(bytes);
   });
+
+  it('should fail to read from negative locations in standard memory', () => {
+    const mem: StandardMemory = new StandardMemory();
+    const address = -0x000C0000;
+
+    chai.expect((): void => {
+      mem.read(address);
+    })
+      .to.throw('Cannot read from a negative memory location.  Hah!');
+  });
 });

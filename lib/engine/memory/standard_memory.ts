@@ -15,6 +15,9 @@ class StandardMemory {
   }
 
   public read(address: number): number {
+    if (address < 0) {
+      throw 'Cannot read from a negative memory location.  Hah!';
+    }
     return this.memory[address];
   }
 }
