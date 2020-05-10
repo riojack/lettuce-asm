@@ -3,8 +3,13 @@ import RegisterMemory from '../../../../lib/engine/memory/register_memory';
 import * as chai from 'chai';
 
 describe('register memory', (): void => {
+  let mem: RegisterMemory;
+
+  beforeEach((): void => {
+    mem = new RegisterMemory();
+  });
+
   it('should read back what was written to memory', (): void => {
-    const mem: RegisterMemory = new RegisterMemory();
     const address = 0x00000000;
     const bytes = 0x87000000;
 
@@ -15,7 +20,6 @@ describe('register memory', (): void => {
   });
 
   it('should fail trying to write beyond 0x0000000A', (): void => {
-    const mem: RegisterMemory = new RegisterMemory();
     const address = 0x0000000B;
 
     chai.expect((): void => mem.write(address, 0x1))
@@ -23,7 +27,6 @@ describe('register memory', (): void => {
   });
 
   it('should fail trying to write a negative memory location', (): void => {
-    const mem: RegisterMemory = new RegisterMemory();
     const address = -0x0000000B;
 
     chai.expect((): void => mem.write(address, 0x1))
@@ -31,7 +34,6 @@ describe('register memory', (): void => {
   });
 
   it('should fail trying to read beyond 0x0000000A', (): void => {
-    const mem: RegisterMemory = new RegisterMemory();
     const address = 0x0000000B;
 
     chai.expect((): void => {
@@ -40,12 +42,10 @@ describe('register memory', (): void => {
   });
 
   it('should fail trying to read a negative memory location', (): void => {
-    const mem: RegisterMemory = new RegisterMemory();
     const address = -0x0000000B;
 
     chai.expect((): void => {
       mem.read(address);
     }).to.throw('Cannot read from a negative register.  That doesn\'t even make sense!');
   });
-
 });
