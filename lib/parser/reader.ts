@@ -9,29 +9,25 @@ interface Segment {
 const LF = '\n';
 const WHITE_SPACE = [' ', LF, '\r', '\t'];
 
-function getTokenMatchingUntilBySize(value: string, until: string, index: number): boolean {
-  const indexPlusOne: number = index + 1;
-  const untilSize = until.length;
+function hasToken(token: string, boundary: string, indexToStartFrom: number): boolean {
+  const fromPlusOne: number = indexToStartFrom + 1;
+  const boundarySize: number = boundary.length;
 
-  if (indexPlusOne >= untilSize) {
-    const token: string = value.substr(indexPlusOne - untilSize, untilSize);
+  const possibleToken: string = token.substr(fromPlusOne - boundarySize, boundarySize);
 
-    return token === until;
-  }
-
-  return false;
+  return possibleToken === boundary;
 }
 
-function readUntil(value: string, until: string, start = 0): Segment {
+function scanForToken(token: string, boundary: string, start = 0): Segment {
   const tokens: string[] = [];
-  const untilSize: number = until.length;
+  const untilSize: number = boundary.length;
   let i: number = start;
 
-  for (; i < value.length; i++) {
-    if (untilSize > 0 && getTokenMatchingUntilBySize(value, until, i)) {
+  for (; i < token.length; i++) {
+    if (untilSize > 0 && hasToken(token, boundary, i)) {
       break;
     }
-    tokens.push(value[i]);
+    tokens.push(token[i]);
   }
 
   return {
@@ -55,12 +51,12 @@ class Reader {
     const programLastPosition: number = program.length - 1;
 
     let reachedEnd = false;
-    let programLine: Segment = readUntil(program, LF);
+    let programLine: Segment = scanForToken(program, LF);
 
     while (!reachedEnd) {
-      const opcode: Segment = readUntil(programLine.token, ' ');
-      const operandOne: Segment = readUntil(programLine.token, ',', opcode.stoppedAt + 2);
-      const operandTwo: Segment = readUntil(programLine.token, '', operandOne.stoppedAt + 2);
+      const opcode: Segment = scanForToken(programLine.token, ' ');
+      const operandOne: Segment = scanForToken(programLine.token, ',', opcode.stoppedAt + 2);
+      const operandTwo: Segment = scanForToken(programLine.token, '', operandOne.stoppedAt + 2);
 
       const node: InstructionNode = new InstructionNode(
         opcode.token,
@@ -75,7 +71,7 @@ class Reader {
         continue;
       }
 
-      programLine = readUntil(program, LF, programLine.stoppedAt + 2);
+      programLine = scanForToken(program, LF, programLine.stoppedAt + 2);
     }
 
     return nodes;
