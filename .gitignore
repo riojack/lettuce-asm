@@ -1,5 +1,7 @@
 node_modules/
 .idea/
 js/
+.nyc_output/
+coverage/
 
 .DS_Store

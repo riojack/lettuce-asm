@@ -10,9 +10,11 @@
     "lint": "eslint ./**/*.ts",
     "fixlint": "yarn lint --fix",
     "pretest": "yarn lint",
-    "test": "mocha test"
+    "test": "mocha test",
+    "coverage": "nyc mocha test"
   },
   "dependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
     "@types/node": "^11.13.8",
@@ -22,6 +24,7 @@
     "eslint": "^6.7.2",
     "husky": "^2.2.0",
     "mocha": "^5.2.0",
+    "nyc": "^15.0.1",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
   },
