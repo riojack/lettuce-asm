@@ -7,12 +7,12 @@
   "author": "riojack",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint ./**/*.ts",
-    "fixlint": "yarn lint --fix",
-    "pretest": "yarn lint",
-    "test": "mocha --config test/.unit.mocharc.json",
     "acceptance": "mocha --config test/.acceptance.mocharc.json",
-    "coverage": "nyc yarn test"
+    "coverage": "nyc yarn test",
+    "fixlint": "yarn lint --fix",
+    "lint": "eslint ./**/*.ts",
+    "pretest": "yarn lint",
+    "test": "mocha --config test/.unit.mocharc.json"
   },
   "dependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
