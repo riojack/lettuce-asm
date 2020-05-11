@@ -4,7 +4,8 @@ import TerminalState from '../../lib/interpreter/terminal_state';
 import { expect } from 'chai';
 import Registers from '../../lib/lexis/registers';
 
-import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC } from './arithmetic.data';
+import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION }
+  from './arithmetic.data';
 
 describe('Arithmetic', (): void => {
   describe(`given the program\n${TRIPLE_ADD_PROGRAM}\nwhen executed...`, (): void => {
@@ -40,6 +41,22 @@ describe('Arithmetic', (): void => {
 
       expect(registerRaValue)
         .to.eql(0x2);
+    });
+  });
+
+  describe(`given the program\n${IMPERFECT_DIVISION}\nwhen executed...`, () => {
+    it('then register RB will hold the value 0x32 and ARMR will hold the value 0x1', () => {
+      const interpreter: Interpreter = new Interpreter();
+      const terminalState: TerminalState = interpreter.execute(IMPERFECT_DIVISION);
+
+      const registerRaValue: number = terminalState.readRegister(Registers.RB);
+      const registerArmrValue: number = terminalState.readRegister(Registers.ARMR);
+
+      expect(registerRaValue)
+        .to.eql(0x32);
+
+      expect(registerArmrValue)
+        .to.eql(0x1);
     });
   });
 });

@@ -17,3 +17,9 @@ export const INTEGRAL_DIV_AND_INC = [
   'INC RD',
   'DIV RD, 0x3'
 ].join('\n');
+
+export const IMPERFECT_DIVISION = [
+  'ADD RB, 0x64',
+  'INC RB',
+  'DIV RB, 0x2',
+].join('\n');
