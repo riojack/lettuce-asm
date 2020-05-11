@@ -13,6 +13,6 @@
     "types": ["node", "mocha", "chai"]
   },
   "include": [
-    "./src/**/*"
+    "./lib/**/*"
   ]
 }
