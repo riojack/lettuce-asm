@@ -9,3 +9,11 @@ export const INCREMENT_PROGRAM = [
   'INC RA',
   'INC RA'
 ].join('\n');
+
+export const INTEGRAL_DIV_AND_INC = [
+  'ADD RD, 0x8',
+  'DIV RD, 0x2',
+  'INC RD',
+  'INC RD',
+  'DIV RD, 0x3'
+].join('\n');
