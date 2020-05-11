@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import TerminalState from './terminal_state';
 import Reader from '../parser/reader';
 import IParseNode from '../parser/nodes/parse_node';
