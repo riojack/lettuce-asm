@@ -10,4 +10,13 @@ describe('instruction node', (): void => {
         .to.equal('ABC');
     });
   });
+
+  context('getAlias', (): void => {
+    it('should return the alias provided at initialization', (): void => {
+      const node: InstructionNode = new InstructionNode('', '@XYZ', ['']);
+
+      chai.expect(node.getAlias())
+        .to.equal('@XYZ');
+    });
+  });
 });
