@@ -13,13 +13,19 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          name: Install Dependencies
+          command: yarn install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test
+      - run:
+          name: Unit Tests and Coverage
+          command: yarn coverage
 
-      - run: yarn coverage
+      - run:
+          name: Acceptance Tests
+          command: yarn acceptance
