@@ -12,7 +12,7 @@
     "pretest": "yarn lint",
     "test": "mocha --config test/.unit.mocharc.json",
     "acceptance": "mocha --config test/.acceptance.mocharc.json",
-    "coverage": "nyc mocha --config test/.unit.mocharc.json"
+    "coverage": "nyc yarn test"
   },
   "dependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
