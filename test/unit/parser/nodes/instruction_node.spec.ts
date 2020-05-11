@@ -19,4 +19,13 @@ describe('instruction node', (): void => {
         .to.equal('@XYZ');
     });
   });
+
+  context('getOperands', (): void => {
+    it('should return the operands provided at initialization', (): void => {
+      const node: InstructionNode = new InstructionNode('', '', ['RC', '0x12345']);
+
+      chai.expect(node.getOperands())
+        .to.eql(['RC', '0x12345']);
+    });
+  });
 });
