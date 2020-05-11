@@ -13,9 +13,9 @@ describe('Arithmetic', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(TRIPLE_ADD_PROGRAM);
 
-      const registerRaValue: number = terminalState.readRegister(Registers.RA);
+      const raValue: number = terminalState.readRegister(Registers.RA);
 
-      expect(registerRaValue)
+      expect(raValue)
         .to.eql(0x3);
     });
   });
@@ -25,9 +25,9 @@ describe('Arithmetic', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(INCREMENT_PROGRAM);
 
-      const registerRaValue: number = terminalState.readRegister(Registers.RA);
+      const raValue: number = terminalState.readRegister(Registers.RA);
 
-      expect(registerRaValue)
+      expect(raValue)
         .to.eql(0x15);
     });
   });
@@ -37,9 +37,9 @@ describe('Arithmetic', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(INTEGRAL_DIV_AND_INC);
 
-      const registerRaValue: number = terminalState.readRegister(Registers.RD);
+      const rdValue: number = terminalState.readRegister(Registers.RD);
 
-      expect(registerRaValue)
+      expect(rdValue)
         .to.eql(0x2);
     });
   });
@@ -49,13 +49,13 @@ describe('Arithmetic', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(IMPERFECT_DIVISION);
 
-      const registerRaValue: number = terminalState.readRegister(Registers.RB);
-      const registerArmrValue: number = terminalState.readRegister(Registers.ARMR);
+      const rbValue: number = terminalState.readRegister(Registers.RB);
+      const armrValue: number = terminalState.readRegister(Registers.ARMR);
 
-      expect(registerRaValue)
+      expect(rbValue)
         .to.eql(0x32);
 
-      expect(registerArmrValue)
+      expect(armrValue)
         .to.eql(0x1);
     });
   });
