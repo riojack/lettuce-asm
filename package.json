@@ -10,9 +10,9 @@
     "lint": "eslint ./**/*.ts",
     "fixlint": "yarn lint --fix",
     "pretest": "yarn lint",
-    "test": "mocha --opts test/unit.mocha.opts",
-    "acceptance": "mocha --opts test/acceptance.mocha.opts",
-    "coverage": "nyc mocha --opts test/unit.mocha.opts"
+    "test": "mocha --config test/.unit.mocharc.json",
+    "acceptance": "mocha --config test/.acceptance.mocharc.json",
+    "coverage": "nyc mocha --config test/.unit.mocharc.json"
   },
   "dependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
