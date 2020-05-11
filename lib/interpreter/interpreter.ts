@@ -1,6 +1,3 @@
-/* istanbul ignore file */
-// This file is an integration point for the interpreter.
-// Test coverage happens through the acceptance tests.
 import TerminalState from './terminal_state';
 import Reader from '../parser/reader';
 import IParseNode from '../parser/nodes/parse_node';
