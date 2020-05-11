@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn coverage"
+      "pre-push": "yarn coverage && yarn acceptance"
     }
   }
 }
