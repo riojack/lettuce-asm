@@ -1,3 +1,0 @@
---recursive
--r ts-node/register
-test/**/*.spec.ts
