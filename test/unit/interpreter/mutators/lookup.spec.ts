@@ -1,14 +1,20 @@
 import * as chai from 'chai';
-import {MutatorLookup} from '../../../../lib/interpreter/mutators/lookup';
-import {addMutator} from '../../../../lib/interpreter/mutators/functions/addMutator';
-import {incrementMutator} from '../../../../lib/interpreter/mutators/functions/incrementMutator';
-import {divMutator} from '../../../../lib/interpreter/mutators/functions/divMutator';
+import { MutatorLookup } from '../../../../lib/interpreter/mutators/lookup';
+import { addMutator } from '../../../../lib/interpreter/mutators/functions/addMutator';
+import { incrementMutator } from '../../../../lib/interpreter/mutators/functions/incrementMutator';
+import { divMutator } from '../../../../lib/interpreter/mutators/functions/divMutator';
+import { subMutator } from '../../../../lib/interpreter/mutators/functions/subMutator';
 import Opcodes from '../../../../lib/lexis/opcodes';
 
 describe('interpreter mutators', (): void => {
   it('should support the ADD opcode', (): void => {
     chai.expect(MutatorLookup).to.include.keys(Opcodes.ADD);
     chai.expect(MutatorLookup[Opcodes.ADD]).to.equal(addMutator);
+  });
+
+  it('should support the SUB opcode', (): void => {
+    chai.expect(MutatorLookup).to.include.keys(Opcodes.SUB);
+    chai.expect(MutatorLookup[Opcodes.SUB]).to.equal(subMutator);
   });
 
   it('should support the INC opcode', (): void => {
