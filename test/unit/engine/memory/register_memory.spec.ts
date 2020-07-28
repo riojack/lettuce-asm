@@ -26,6 +26,11 @@ describe('register memory', (): void => {
       .to.throw('Cannot write to register beyond 0x0000000A.');
   });
 
+  it('should fail trying to write to undefined', (): void => {
+    chai.expect((): void => mem.write(undefined, 0x1))
+      .to.throw('Cannot write to register.  Invalid address provided.');
+  });
+
   it('should fail trying to write a negative memory location', (): void => {
     const address = -0x0000000B;
 
@@ -39,6 +44,12 @@ describe('register memory', (): void => {
     chai.expect((): void => {
       mem.read(address);
     }).to.throw('Cannot read registers beyond 0x0000000A.');
+  });
+
+  it('should fail trying to read from undefined', (): void => {
+    chai.expect((): void => {
+      mem.read(undefined);
+    }).to.throw('Cannot read from register.  Invalid address provided.');
   });
 
   it('should fail trying to read a negative memory location', (): void => {
