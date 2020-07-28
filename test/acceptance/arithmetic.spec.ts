@@ -4,7 +4,7 @@ import TerminalState from '../../lib/interpreter/terminal_state';
 import { expect } from 'chai';
 import Registers from '../../lib/lexis/registers';
 
-import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION }
+import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION, SUBTRACTION_PROGRAM }
   from './arithmetic.data';
 
 describe('Arithmetic', (): void => {
@@ -56,6 +56,18 @@ describe('Arithmetic', (): void => {
         .to.eql(0x32);
 
       expect(armrValue)
+        .to.eql(0x1);
+    });
+  });
+
+  describe(`given the program\n${SUBTRACTION_PROGRAM}\nwhen executed...`, () => {
+    it('then register RC will hold the value 0x1', () => {
+      const interpreter: Interpreter = new Interpreter();
+      const terminalState: TerminalState = interpreter.execute(SUBTRACTION_PROGRAM);
+
+      const rcValue: number = terminalState.readRegister(Registers.RC);
+
+      expect(rcValue)
         .to.eql(0x1);
     });
   });

@@ -23,3 +23,10 @@ export const IMPERFECT_DIVISION = [
   'INC RB',
   'DIV RB, 0x2',
 ].join('\n');
+
+export const SUBTRACTION_PROGRAM = [
+  'INC RC',
+  'INC RC',
+  'INC RC',
+  'SUB RC, 0x2'
+].join('\n');
