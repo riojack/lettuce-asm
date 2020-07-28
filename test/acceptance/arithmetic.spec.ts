@@ -20,7 +20,7 @@ describe('Arithmetic', (): void => {
     });
   });
 
-  describe(`given the program\n${INCREMENT_PROGRAM}\nwhen executed...`, () => {
+  describe(`given the program\n${INCREMENT_PROGRAM}\nwhen executed...`, (): void => {
     it('then register RA will hold a value equal to Ox15', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(INCREMENT_PROGRAM);
@@ -32,8 +32,8 @@ describe('Arithmetic', (): void => {
     });
   });
 
-  describe(`given the program\n${INTEGRAL_DIV_AND_INC}\nwhen executed...`, () => {
-    it('then register RD will hold a value equal to 0x2', () => {
+  describe(`given the program\n${INTEGRAL_DIV_AND_INC}\nwhen executed...`, (): void => {
+    it('then register RD will hold a value equal to 0x2', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(INTEGRAL_DIV_AND_INC);
 
@@ -44,8 +44,8 @@ describe('Arithmetic', (): void => {
     });
   });
 
-  describe(`given the program\n${IMPERFECT_DIVISION}\nwhen executed...`, () => {
-    it('then register RB will hold the value 0x32 and ARMR will hold the value 0x1', () => {
+  describe(`given the program\n${IMPERFECT_DIVISION}\nwhen executed...`, (): void => {
+    it('then register RB will hold the value 0x32 and ARMR will hold the value 0x1', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(IMPERFECT_DIVISION);
 
@@ -60,8 +60,8 @@ describe('Arithmetic', (): void => {
     });
   });
 
-  describe(`given the program\n${SUBTRACTION_PROGRAM}\nwhen executed...`, () => {
-    it('then register RC will hold the value 0x1', () => {
+  describe(`given the program\n${SUBTRACTION_PROGRAM}\nwhen executed...`, (): void => {
+    it('then register RC will hold the value 0x1', (): void => {
       const interpreter: Interpreter = new Interpreter();
       const terminalState: TerminalState = interpreter.execute(SUBTRACTION_PROGRAM);
 
