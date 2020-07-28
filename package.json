@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "acceptance": "mocha --config test/.acceptance.mocharc.json",
+    "build": "tsc --build",
     "coverage": "nyc yarn test",
     "fixlint": "yarn lint --fix",
     "lint": "eslint ./**/*.ts",

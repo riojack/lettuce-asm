@@ -10,7 +10,8 @@
     "lib": [
       "es2016"
     ],
-    "types": ["node", "mocha", "chai"]
+    "types": ["node", "mocha", "chai"],
+    "strict": true
   },
   "include": [
     "./lib/**/*"
