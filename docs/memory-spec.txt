@@ -24,7 +24,7 @@ Non-Addressable Memory
   ADDRESS     | SIZE        | Description
   ------------|-------------|------------------------------------------------------
   0x0000000   |  4 bytes    | Preamble Marker
-  0xA000000   | 16 bytes    | COM1 Buffer
-  0xA000016   | 16 bytes    | COM2 Buffer
-  0xA00002C   | 16 bytes    | COM3 Buffer
+  0x0A00000   | 16 bytes    | COM1 Buffer
+  0x0A00016   | 16 bytes    | COM2 Buffer
+  0x0A0002C   | 16 bytes    | COM3 Buffer
   0x0FFFFFF   |  4 bytes    | Terminator Marker
