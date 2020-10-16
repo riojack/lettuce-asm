@@ -40,6 +40,7 @@ Instructions
     OPCODE Reference
 
     Arithmetic
+    ---------------------------------------------
 
     ADD A B
       Adds B to A and stores it in A
@@ -73,6 +74,25 @@ Instructions
 
     RSH RC
       Right shift the value at the address or register by one byte.  LD register is not changed.
+
+    Branching
+    ---------------------------------------------
+
+    JMP
+      "Jump"
+
+    JEQ
+      "Jump, Equal"
+
+    JNQ
+      "Jump, Not Equal"
+
+    JGT
+      "Jump, Greater Than"
+
+    JLT
+      "Jump, Less Than"
+
 
     Data Definitions
     ---------------------------------------------
