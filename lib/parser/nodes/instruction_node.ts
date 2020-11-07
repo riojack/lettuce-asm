@@ -1,14 +1,25 @@
 import ParseNode from './parse_node';
 
 class InstructionNode implements ParseNode {
-  public readonly opcode: string;
-  public readonly alias: string;
-  public readonly operands: string[];
+  private _opcode: string;
+  public get opcode(): string {
+    return this._opcode;
+  }
+
+  private _alias: string;
+  public get alias(): string {
+    return this._alias;
+  }
+
+  private _operands: string[];
+  public get operands(): string[] {
+    return this._operands;
+  }
 
   public constructor(opcode: string, alias: string, operands: (string)[]) {
-    this.opcode = opcode;
-    this.alias = alias;
-    this.operands = operands;
+    this._opcode = opcode;
+    this._alias = alias;
+    this._operands = operands;
   }
 }
 
