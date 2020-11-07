@@ -9,20 +9,20 @@ describe('parser/reader', (): void => {
   it('should parse ADD RA, 0x1 into a ADD node with a register operand and an immediate operand', (): void => {
     const node: IParseNode = Reader.parseString('ADD RA, 0x1')[0];
 
-    chai.expect(node.getOpcode())
+    chai.expect(node.opcode)
       .to.equal(Opcodes.ADD);
 
-    chai.expect(node.getOperands())
+    chai.expect(node.operands)
       .to.eql([Registers.RA, '0x1']);
   });
 
   it('should parse SUB RA, 0x1 into a SUB node with a register operand and an immediate operand', (): void => {
     const node: IParseNode = Reader.parseString('SUB RA, 0x1')[0];
 
-    chai.expect(node.getOpcode())
+    chai.expect(node.opcode)
       .to.equal(Opcodes.SUB);
 
-    chai.expect(node.getOperands())
+    chai.expect(node.operands)
       .to.eql([Registers.RA, '0x1']);
   });
 
@@ -42,16 +42,16 @@ describe('parser/reader', (): void => {
       const lineOne: IParseNode = program[0];
       const lineTwo: IParseNode = program[1];
 
-      chai.expect(lineOne.getOpcode())
+      chai.expect(lineOne.opcode)
         .to.equal(Opcodes.ADD);
 
-      chai.expect(lineOne.getOperands())
+      chai.expect(lineOne.operands)
         .to.eql([Registers.RA, '0x1']);
 
-      chai.expect(lineTwo.getOpcode())
+      chai.expect(lineTwo.opcode)
         .to.equal(Opcodes.SUB);
 
-      chai.expect(lineTwo.getOperands())
+      chai.expect(lineTwo.operands)
         .to.eql([Registers.RA, '0x1']);
     });
   });
@@ -72,16 +72,16 @@ describe('parser/reader', (): void => {
       const lineOne: IParseNode = program[0];
       const lineTwo: IParseNode = program[1];
 
-      chai.expect(lineOne.getOpcode())
+      chai.expect(lineOne.opcode)
         .to.equal(Opcodes.ADD);
 
-      chai.expect(lineOne.getOperands())
+      chai.expect(lineOne.operands)
         .to.eql([Registers.RA, '0x1']);
 
-      chai.expect(lineTwo.getOpcode())
+      chai.expect(lineTwo.opcode)
         .to.equal(Opcodes.SUB);
 
-      chai.expect(lineTwo.getOperands())
+      chai.expect(lineTwo.operands)
         .to.eql([Registers.RA, '0x1']);
     });
   });

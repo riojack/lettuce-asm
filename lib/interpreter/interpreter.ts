@@ -16,7 +16,7 @@ class Interpreter {
     const root: IParseNode[] = Reader.parseString(program);
 
     root.forEach((node: IParseNode): void => {
-      const opcode: string = node.getOpcode();
+      const { opcode } = node;
 
       const opcodeFunc: MutatorFunc = MutatorLookup[opcode];
 

@@ -5,7 +5,7 @@ import { MutatorFunc } from '../lookup';
 
 export const incrementMutator: MutatorFunc = (node: IParseNode, previousState: TerminalState): TerminalState => {
   const memory: RegisterMemoryFacade = previousState.registerMemory;
-  const [register]: [string] = node.getOperands() as [string];
+  const [register]: [string] = node.operands as [string];
   const currentValueInRegister: number = memory.read(register);
 
   const nextValueForRegister = currentValueInRegister + 0x1;

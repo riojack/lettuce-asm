@@ -6,7 +6,7 @@ describe('instruction node', (): void => {
     it('should return the opcode provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('ABC', '', ['']);
 
-      chai.expect(node.getOpcode())
+      chai.expect(node.opcode)
         .to.equal('ABC');
     });
   });
@@ -15,7 +15,7 @@ describe('instruction node', (): void => {
     it('should return the alias provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('', '@XYZ', ['']);
 
-      chai.expect(node.getAlias())
+      chai.expect(node.alias)
         .to.equal('@XYZ');
     });
   });
@@ -24,7 +24,7 @@ describe('instruction node', (): void => {
     it('should return the operands provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('', '', ['RC', '0x12345']);
 
-      chai.expect(node.getOperands())
+      chai.expect(node.operands)
         .to.eql(['RC', '0x12345']);
     });
   });
