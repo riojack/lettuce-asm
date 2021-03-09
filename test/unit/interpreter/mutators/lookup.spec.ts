@@ -1,7 +1,7 @@
 import * as chai from 'chai';
 import { MutatorLookup } from '../../../../lib/interpreter/mutators/lookup';
 import { addMutator } from '../../../../lib/interpreter/mutators/functions/addMutator';
-import { incrementMutator } from '../../../../lib/interpreter/mutators/functions/incrementMutator';
+import { incMutator } from '../../../../lib/interpreter/mutators/functions/incMutator';
 import { divMutator } from '../../../../lib/interpreter/mutators/functions/divMutator';
 import { subMutator } from '../../../../lib/interpreter/mutators/functions/subMutator';
 import { mulMutator } from '../../../../lib/interpreter/mutators/functions/mulMutator';
@@ -21,7 +21,7 @@ describe('interpreter mutators', (): void => {
 
   it('should support the INC opcode', (): void => {
     chai.expect(MutatorLookup).to.include.keys(Opcodes.INC);
-    chai.expect(MutatorLookup[Opcodes.INC]).to.equal(incrementMutator);
+    chai.expect(MutatorLookup[Opcodes.INC]).to.equal(incMutator);
   });
 
   it('should support the DIV opcode', (): void => {
