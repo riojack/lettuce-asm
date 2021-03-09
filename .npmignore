@@ -8,6 +8,7 @@ test
 .eslintrc
 .gitattributes
 .nvmrc
+.husky
 Dockerfile
 nyc.config.js
 tsconfig.json

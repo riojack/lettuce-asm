@@ -13,6 +13,7 @@
     "coverage": "nyc yarn test",
     "fixlint": "yarn lint --fix",
     "lint": "eslint ./**/*.ts",
+    "postinstall": "husky install",
     "pretest": "yarn lint",
     "test": "mocha --config test/.unit.mocharc.json"
   },
