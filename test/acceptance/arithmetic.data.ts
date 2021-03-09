@@ -37,3 +37,9 @@ export const MULTIPLICATION_PROGRAM: string = [
   'MUL RB, 0x7',
   'ADD RB, 0x3'
 ].join('\n');
+
+export const DECREMENT_PROGRAM: string = [
+  'ADD RA, 0x16',
+  'DEC RA',
+  'DEC RA'
+].join('\n');

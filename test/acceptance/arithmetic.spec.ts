@@ -2,7 +2,7 @@ import Interpreter from '../../lib/interpreter/interpreter';
 import TerminalState from '../../lib/interpreter/terminal_state';
 import { expect } from 'chai';
 import Registers from '../../lib/lexis/registers';
-import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION, SUBTRACTION_PROGRAM, MULTIPLICATION_PROGRAM }
+import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION, SUBTRACTION_PROGRAM, MULTIPLICATION_PROGRAM, DECREMENT_PROGRAM }
   from './arithmetic.data';
 
 describe('Arithmetic', (): void => {
@@ -79,6 +79,18 @@ describe('Arithmetic', (): void => {
 
       expect(rbValue)
         .to.eql(0x11);
+    });
+  });
+
+  describe(`given the program\n${DECREMENT_PROGRAM}\nwhen executed...`, (): void => {
+    it('then register RA will hold a value equal to Ox14', (): void => {
+      const interpreter: Interpreter = new Interpreter();
+      const terminalState: TerminalState = interpreter.execute(DECREMENT_PROGRAM);
+
+      const raValue: number = terminalState.readRegister(Registers.RA);
+
+      expect(raValue)
+        .to.eql(0x14);
     });
   });
 });
