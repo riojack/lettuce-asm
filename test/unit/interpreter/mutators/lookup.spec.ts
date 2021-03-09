@@ -4,6 +4,7 @@ import { addMutator } from '../../../../lib/interpreter/mutators/functions/addMu
 import { incrementMutator } from '../../../../lib/interpreter/mutators/functions/incrementMutator';
 import { divMutator } from '../../../../lib/interpreter/mutators/functions/divMutator';
 import { subMutator } from '../../../../lib/interpreter/mutators/functions/subMutator';
+import { mulMutator } from '../../../../lib/interpreter/mutators/functions/mulMutator';
 import Opcodes from '../../../../lib/lexis/opcodes';
 
 describe('interpreter mutators', (): void => {
@@ -25,5 +26,10 @@ describe('interpreter mutators', (): void => {
   it('should support the DIV opcode', (): void => {
     chai.expect(MutatorLookup).to.include.keys(Opcodes.DIV);
     chai.expect(MutatorLookup[Opcodes.DIV]).to.equal(divMutator);
+  });
+
+  it('should support the MUL opcode', (): void => {
+    chai.expect(MutatorLookup).to.include.keys(Opcodes.MUL);
+    chai.expect(MutatorLookup[Opcodes.MUL]).to.equal(mulMutator);
   });
 });
