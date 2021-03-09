@@ -6,6 +6,7 @@ import * as subMutatorFunc from './functions/subMutator';
 import * as incrementMutatorFunc from './functions/incrementMutator';
 import * as divMutatorFunc from './functions/divMutator';
 import * as mulMutatorFunc from './functions/mulMutator';
+import * as decMutatorFunc from './functions/decMutator';
 
 export type MutatorFunc = ((node: IParseNode, previousState: TerminalState) => TerminalState);
 
@@ -14,5 +15,6 @@ export const MutatorLookup: Readonly<{ [key: string]: MutatorFunc }> = Object.fr
   [Opcodes.SUB]: subMutatorFunc.subMutator,
   [Opcodes.INC]: incrementMutatorFunc.incrementMutator,
   [Opcodes.DIV]: divMutatorFunc.divMutator,
-  [Opcodes.MUL]: mulMutatorFunc.mulMutator
+  [Opcodes.MUL]: mulMutatorFunc.mulMutator,
+  [Opcodes.DEC]: decMutatorFunc.decMutator
 });

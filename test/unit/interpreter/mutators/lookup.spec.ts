@@ -5,6 +5,7 @@ import { incrementMutator } from '../../../../lib/interpreter/mutators/functions
 import { divMutator } from '../../../../lib/interpreter/mutators/functions/divMutator';
 import { subMutator } from '../../../../lib/interpreter/mutators/functions/subMutator';
 import { mulMutator } from '../../../../lib/interpreter/mutators/functions/mulMutator';
+import { decMutator } from '../../../../lib/interpreter/mutators/functions/decMutator';
 import Opcodes from '../../../../lib/lexis/opcodes';
 
 describe('interpreter mutators', (): void => {
@@ -31,5 +32,10 @@ describe('interpreter mutators', (): void => {
   it('should support the MUL opcode', (): void => {
     chai.expect(MutatorLookup).to.include.keys(Opcodes.MUL);
     chai.expect(MutatorLookup[Opcodes.MUL]).to.equal(mulMutator);
+  });
+
+  it('should support the DEC opcode', (): void => {
+    chai.expect(MutatorLookup).to.include.keys(Opcodes.DEC);
+    chai.expect(MutatorLookup[Opcodes.DEC]).to.equal(decMutator);
   });
 });
