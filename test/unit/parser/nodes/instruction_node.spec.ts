@@ -2,7 +2,7 @@ import * as chai from 'chai';
 import InstructionNode from '../../../../lib/parser/nodes/instruction_node';
 
 describe('instruction node', (): void => {
-  context('getOpcode', (): void => {
+  context('opcode', (): void => {
     it('should return the opcode provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('ABC', '', ['']);
 
@@ -11,7 +11,7 @@ describe('instruction node', (): void => {
     });
   });
 
-  context('getAlias', (): void => {
+  context('alias', (): void => {
     it('should return the alias provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('', '@XYZ', ['']);
 
@@ -20,7 +20,7 @@ describe('instruction node', (): void => {
     });
   });
 
-  context('getOperands', (): void => {
+  context('operands', (): void => {
     it('should return the operands provided at initialization', (): void => {
       const node: InstructionNode = new InstructionNode('', '', ['RC', '0x12345']);
 

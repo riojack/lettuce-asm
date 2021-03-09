@@ -5,7 +5,7 @@ import Registers from '../../../lib/lexis/registers';
 
 import * as chai from 'chai';
 
-describe('parser/reader', (): void => {
+describe('parser', (): void => {
   it('should parse ADD RA, 0x1 into a ADD node with a register operand and an immediate operand', (): void => {
     const node: IParseNode = Reader.parseString('ADD RA, 0x1')[0];
 
