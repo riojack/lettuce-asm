@@ -1,10 +1,8 @@
 import Interpreter from '../../lib/interpreter/interpreter';
 import TerminalState from '../../lib/interpreter/terminal_state';
-
 import { expect } from 'chai';
 import Registers from '../../lib/lexis/registers';
-
-import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION, SUBTRACTION_PROGRAM }
+import { TRIPLE_ADD_PROGRAM, INCREMENT_PROGRAM, INTEGRAL_DIV_AND_INC, IMPERFECT_DIVISION, SUBTRACTION_PROGRAM, MULTIPLICATION_PROGRAM }
   from './arithmetic.data';
 
 describe('Arithmetic', (): void => {
@@ -69,6 +67,18 @@ describe('Arithmetic', (): void => {
 
       expect(rcValue)
         .to.eql(0x1);
+    });
+  });
+
+  describe(`given the program\n${MULTIPLICATION_PROGRAM}\nwhen executed...`, (): void => {
+    it('then register RB will hold the value 0x11', (): void => {
+      const interpreter: Interpreter = new Interpreter();
+      const terminalState: TerminalState = interpreter.execute(MULTIPLICATION_PROGRAM);
+
+      const rbValue: number = terminalState.readRegister(Registers.RB);
+
+      expect(rbValue)
+        .to.eql(0x11);
     });
   });
 });

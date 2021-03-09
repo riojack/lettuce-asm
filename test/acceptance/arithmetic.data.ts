@@ -30,3 +30,10 @@ export const SUBTRACTION_PROGRAM: string = [
   'INC RC',
   'SUB RC, 0x2'
 ].join('\n');
+
+export const MULTIPLICATION_PROGRAM: string = [
+  'INC RB',
+  'INC RB',
+  'MUL RB, 0x7',
+  'ADD RB, 0x3'
+].join('\n');
