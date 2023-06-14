@@ -1,10 +1,10 @@
 import * as chai from 'chai';
-import InstructionNode from '../../../../lib/parser/nodes/instruction_node';
+import ParseNode from '../../../../lib/parser/nodes/parse_node';
 
 describe('instruction node', (): void => {
   context('opcode', (): void => {
     it('should return the opcode provided at initialization', (): void => {
-      const node: InstructionNode = new InstructionNode('ABC', '', ['']);
+      const node: ParseNode = new ParseNode('ABC', '', ['']);
 
       chai.expect(node.opcode)
         .to.equal('ABC');
@@ -13,7 +13,7 @@ describe('instruction node', (): void => {
 
   context('alias', (): void => {
     it('should return the alias provided at initialization', (): void => {
-      const node: InstructionNode = new InstructionNode('', '@XYZ', ['']);
+      const node: ParseNode = new ParseNode('', '@XYZ', ['']);
 
       chai.expect(node.alias)
         .to.equal('@XYZ');
@@ -22,7 +22,7 @@ describe('instruction node', (): void => {
 
   context('operands', (): void => {
     it('should return the operands provided at initialization', (): void => {
-      const node: InstructionNode = new InstructionNode('', '', ['RC', '0x12345']);
+      const node: ParseNode = new ParseNode('', '', ['RC', '0x12345']);
 
       chai.expect(node.operands)
         .to.eql(['RC', '0x12345']);

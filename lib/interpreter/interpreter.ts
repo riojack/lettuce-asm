@@ -1,6 +1,6 @@
 import TerminalState from './terminal_state';
 import Reader from '../parser/reader';
-import IParseNode from '../parser/nodes/parse_node';
+import ParseNode from '../parser/nodes/parse_node';
 import RegisterMemory from '../engine/memory/register_memory';
 import RegisterMemoryFacade from '../engine/memory_facades/register_memory_facade';
 import { MutatorLookup, MutatorFunc } from './mutators/lookup';
@@ -13,9 +13,9 @@ class Interpreter {
       )
     );
 
-    const root: IParseNode[] = Reader.parseString(program);
+    const root: ParseNode[] = Reader.parseString(program);
 
-    root.forEach((node: IParseNode): void => {
+    root.forEach((node: ParseNode): void => {
       const { opcode } = node;
 
       const opcodeFunc: MutatorFunc = MutatorLookup[opcode];

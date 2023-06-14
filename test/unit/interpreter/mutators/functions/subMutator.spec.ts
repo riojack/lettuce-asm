@@ -5,8 +5,7 @@ import TerminalState from '../../../../../lib/interpreter/terminal_state';
 import Opcodes from '../../../../../lib/lexis/opcodes';
 import Registers from '../../../../../lib/lexis/registers';
 import {MutatorLookup, MutatorFunc} from '../../../../../lib/interpreter/mutators/lookup';
-import IParseNode from '../../../../../lib/parser/nodes/parse_node';
-import InstructionNode from '../../../../../lib/parser/nodes/instruction_node';
+import ParseNode from '../../../../../lib/parser/nodes/parse_node';
 
 describe('SUB mutator', (): void => {
   let memory: RegisterMemory;
@@ -22,7 +21,7 @@ describe('SUB mutator', (): void => {
 
   context('for program "SUB RE, 0x1"', (): void => {
     it('should return a terminal state with register RE set to 0x9', (): void => {
-      const instructionNode: IParseNode = new InstructionNode(Opcodes.SUB, '', [Registers.RE, '0x1']);
+      const instructionNode: ParseNode = new ParseNode(Opcodes.SUB, '', [Registers.RE, '0x1']);
       const subMutatorFunc: MutatorFunc = MutatorLookup[Opcodes.SUB];
 
       const newState: TerminalState = subMutatorFunc(instructionNode, previousState);

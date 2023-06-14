@@ -1,4 +1,4 @@
-import IParseNode from '../../parser/nodes/parse_node';
+import ParseNode from '../../parser/nodes/parse_node';
 import TerminalState from '../terminal_state';
 import Opcodes from '../../lexis/opcodes';
 import * as addMutatorFunc from './functions/addMutator';
@@ -8,7 +8,7 @@ import * as divMutatorFunc from './functions/divMutator';
 import * as mulMutatorFunc from './functions/mulMutator';
 import * as decMutatorFunc from './functions/decMutator';
 
-export type MutatorFunc = ((node: IParseNode, previousState: TerminalState) => TerminalState);
+export type MutatorFunc = ((node: ParseNode, previousState: TerminalState) => TerminalState);
 
 export const MutatorLookup: Readonly<{ [key: string]: MutatorFunc }> = Object.freeze<{ [key: string]: MutatorFunc }>({
   [Opcodes.ADD]: addMutatorFunc.addMutator,
